@@ -21,15 +21,10 @@ class WebsiteAnalytics {
     const timestamp = Date.now();
     const today = new Date().toDateString();
 
-    // Update page views
+    // Update page views (this can count multiple views per visitor)
     let pageViews = JSON.parse(localStorage.getItem('analytics_pageViews') || '{}');
     pageViews[pageName] = (pageViews[pageName] || 0) + 1;
     localStorage.setItem('analytics_pageViews', JSON.stringify(pageViews));
-
-    // Update daily visits
-    let dailyVisits = JSON.parse(localStorage.getItem('analytics_dailyVisits') || '{}');
-    dailyVisits[today] = (dailyVisits[today] || 0) + 1;
-    localStorage.setItem('analytics_dailyVisits', JSON.stringify(dailyVisits));
 
     // Update specific page counters
     if (pageName === 'Gallery') {
@@ -37,33 +32,48 @@ class WebsiteAnalytics {
       localStorage.setItem('analytics_galleryViews', galleryViews.toString());
     }
 
-    // Add to recent activity
-    this.addActivity(`Visitor viewed ${pageName} page`);
+    // Only add activity for first page view in this session
+    const sessionActivityKey = `session_activity_${pageName}_${today}`;
+    if (!sessionStorage.getItem(sessionActivityKey)) {
+      this.addActivity(`Visitor viewed ${pageName} page`);
+      sessionStorage.setItem(sessionActivityKey, 'true');
+    }
 
     console.log(`Analytics: Tracked view for ${pageName} page`);
   }
 
   trackSession() {
-    const sessionKey = 'analytics_session_' + Date.now();
-    const lastSessionDate = localStorage.getItem('analytics_lastSessionDate');
     const today = new Date().toDateString();
-
-    // Check if this is a new session (new day or first visit)
-    if (lastSessionDate !== today) {
-      // New visitor for today
+    const sessionKey = `visitor_session_${today}`;
+    
+    // Check if this visitor has already been counted today
+    if (!sessionStorage.getItem(sessionKey)) {
+      // This is a new session for today
+      sessionStorage.setItem(sessionKey, 'true');
+      
+      // Update today's unique visitors
       const todayVisits = parseInt(localStorage.getItem('analytics_todayVisits') || '0') + 1;
       localStorage.setItem('analytics_todayVisits', todayVisits.toString());
 
-      // Check if completely new visitor
-      const hasVisitedBefore = localStorage.getItem('analytics_hasVisited');
-      if (!hasVisitedBefore) {
+      // Update daily visits (for chart)
+      let dailyVisits = JSON.parse(localStorage.getItem('analytics_dailyVisits') || '{}');
+      dailyVisits[today] = (dailyVisits[today] || 0) + 1;
+      localStorage.setItem('analytics_dailyVisits', JSON.stringify(dailyVisits));
+
+      // Check if this is a completely new visitor (ever)
+      const visitorKey = 'analytics_unique_visitor';
+      if (!localStorage.getItem(visitorKey)) {
         const totalVisitors = parseInt(localStorage.getItem('analytics_totalVisitors') || '0') + 1;
         localStorage.setItem('analytics_totalVisitors', totalVisitors.toString());
-        localStorage.setItem('analytics_hasVisited', 'true');
+        localStorage.setItem(visitorKey, 'true');
         this.addActivity('New visitor discovered your website! 🎉');
+      } else {
+        this.addActivity('Returning visitor came back! 👋');
       }
 
-      localStorage.setItem('analytics_lastSessionDate', today);
+      console.log('Analytics: New session tracked for today');
+    } else {
+      console.log('Analytics: Session already counted for today');
     }
   }
 

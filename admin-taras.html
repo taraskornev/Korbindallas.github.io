@@ -178,25 +178,25 @@
       <div class="stats-grid">
         <div class="stat-card">
           <h3>👥 Total Visitors</h3>
-          <div class="stat-number" id="total-visitors">1,247</div>
-          <div class="stat-description">All time unique visitors</div>
+          <div class="stat-number" id="total-visitors">0</div>
+          <div class="stat-description">Unique visitors (all time)</div>
         </div>
         
         <div class="stat-card">
-          <h3>📅 Today's Visits</h3>
-          <div class="stat-number" id="today-visits">23</div>
-          <div class="stat-description">Visitors today</div>
+          <h3>📅 Today's Visitors</h3>
+          <div class="stat-number" id="today-visits">0</div>
+          <div class="stat-description">Unique visitors today</div>
         </div>
         
         <div class="stat-card">
           <h3>🖼️ Gallery Views</h3>
-          <div class="stat-number" id="gallery-views">892</div>
+          <div class="stat-number" id="gallery-views">0</div>
           <div class="stat-description">Total gallery page views</div>
         </div>
         
         <div class="stat-card">
           <h3>📧 Contact Forms</h3>
-          <div class="stat-number" id="contact-forms">34</div>
+          <div class="stat-number" id="contact-forms">0</div>
           <div class="stat-description">Forms submitted</div>
         </div>
       </div>
@@ -521,6 +521,7 @@
 
       // Method to clear all data (for testing)
       clearAllData() {
+        // Clear localStorage
         localStorage.removeItem('analytics_totalVisitors');
         localStorage.removeItem('analytics_todayVisits');
         localStorage.removeItem('analytics_galleryViews');
@@ -528,7 +529,11 @@
         localStorage.removeItem('analytics_pageViews');
         localStorage.removeItem('analytics_dailyVisits');
         localStorage.removeItem('analytics_recentActivity');
-        localStorage.removeItem('analytics_lastDate');
+        localStorage.removeItem('analytics_unique_visitor');
+        
+        // Clear sessionStorage to reset session tracking
+        sessionStorage.clear();
+        
         this.loadData();
         this.updateDisplay();
         this.initChart();

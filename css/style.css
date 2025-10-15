@@ -1855,12 +1855,23 @@ footer p {
     }
 }
 
-/* Enhanced Footer Styles */
+/* Enhanced Footer Styles - Modern Design */
 footer {
-    background: #333;
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
     color: white;
     padding: 40px 0 20px 0;
-    margin-top: 50px;
+    margin-top: 60px;
+    position: relative;
+}
+
+footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
 }
 
 .footer-content {
@@ -1873,55 +1884,83 @@ footer {
 }
 
 .footer-section h4 {
-    color: #ff6b35;
+    color: #ecf0f1;
     margin-bottom: 15px;
     font-size: 1.1rem;
+    font-weight: 600;
+    position: relative;
+    padding-bottom: 8px;
+}
+
+.footer-section h4::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 30px;
+    height: 2px;
+    background: #3498db;
+    border-radius: 1px;
 }
 
 .footer-section p {
-    margin-bottom: 8px;
+    margin-bottom: 10px;
     line-height: 1.6;
+    color: #bdc3c7;
+    font-size: 0.95rem;
 }
 
 .footer-section a {
-    color: #ccc;
+    color: #ecf0f1;
     text-decoration: none;
-    transition: color 0.3s ease;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
 }
 
 .footer-section a:hover {
-    color: #ff6b35;
+    color: #3498db;
+    transform: translateX(2px);
 }
 
 .footer-section .social-links a {
     display: flex;
     align-items: center;
-    gap: 8px;
-    margin-bottom: 10px;
+    gap: 10px;
+    margin-bottom: 12px;
+    padding: 5px 0;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.footer-section .social-links a:hover {
+    background: rgba(255, 255, 255, 0.1);
+    padding-left: 8px;
 }
 
 .footer-section .social-links img {
-    width: 20px;
-    height: 20px;
+    width: 18px;
+    height: 18px;
     filter: invert(1);
     transition: filter 0.3s ease;
 }
 
 .footer-section .social-links a:hover img {
-    filter: invert(0.6) sepia(1) saturate(5) hue-rotate(15deg);
+    filter: invert(0.4) sepia(1) saturate(3) hue-rotate(180deg);
 }
 
 .footer-bottom {
-    border-top: 1px solid #555;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
     margin-top: 30px;
     padding-top: 20px;
     text-align: center;
-    color: #999;
+    color: #95a5a6;
     max-width: 1200px;
     margin-left: auto;
     margin-right: auto;
     padding-left: 20px;
     padding-right: 20px;
+    font-size: 0.9rem;
 }
 
 @media (max-width: 768px) {
@@ -1932,6 +1971,16 @@ footer {
     
     footer {
         padding: 30px 0 15px 0;
+        margin-top: 40px;
+    }
+    
+    .footer-section {
+        text-align: center;
+    }
+    
+    .footer-section h4::after {
+        left: 50%;
+        transform: translateX(-50%);
     }
 }
 

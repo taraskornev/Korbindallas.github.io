@@ -379,13 +379,13 @@
       showPopup() {
         const overlay = document.getElementById('cookie-consent-overlay');
         overlay.style.display = 'flex';
-        document.body.style.overflow = 'hidden'; // Prevent scrolling
+        // Don't block scrolling - let users scroll while considering
       }
 
       hidePopup() {
         const overlay = document.getElementById('cookie-consent-overlay');
         overlay.style.display = 'none';
-        document.body.style.overflow = 'auto'; // Restore scrolling
+        document.body.style.overflow = 'auto'; // Ensure scrolling is restored
       }
 
       acceptCookies() {

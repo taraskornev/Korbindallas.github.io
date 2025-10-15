@@ -7,13 +7,22 @@ class WebsiteAnalytics {
   }
 
   init() {
-    // Don't track admin page visits
-    if (window.location.pathname.includes('admin-taras.html')) {
-      return;
-    }
+    // Check cookie consent before tracking
+    const cookieConsent = localStorage.getItem('cookie-consent');
+    const analyticsAllowed = localStorage.getItem('cookie-analytics');
+    
+    // Only track if user has given consent and analytics are allowed
+    if (cookieConsent === 'accepted' && analyticsAllowed === 'true') {
+      // Don't track admin page visits
+      if (window.location.pathname.includes('admin-taras.html')) {
+        return;
+      }
 
-    this.trackPageView();
-    this.trackSession();
+      this.trackPageView();
+      this.trackSession();
+    } else {
+      console.log('Analytics: Tracking disabled due to cookie consent');
+    }
   }
 
   trackPageView() {

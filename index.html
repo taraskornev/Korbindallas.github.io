@@ -296,30 +296,35 @@
   </main>
 
   <footer>
-  <p data-i18n="footer">© 2025 My Art Shop</p>
-  <div class="social-links">
-    <a href="https://instagram.com/" target="_blank" aria-label="Instagram">
-      <img src="images/ui/instagram.svg" alt="Instagram">
-    </a>
-    <a href="https://facebook.com/" target="_blank" aria-label="Facebook">
-      <img src="images/ui/facebook.svg" alt="Facebook">
-    </a>
-    <a href="https://twitter.com/" target="_blank" aria-label="Twitter">
-      <img src="images/ui/twitter.svg" alt="Twitter">
-    </a>
-  </div>
-  </footer>
-
-  <!-- Cookie Consent Banner -->
-  <div id="cookieConsent" class="cookie-consent">
-    <div class="cookie-content">
-      <p>🍪 We use cookies to track page visits and improve your experience. By continuing to browse, you accept our use of cookies.</p>
-      <div class="cookie-buttons">
-        <button id="acceptCookies" class="btn-accept">Accept All</button>
-        <button id="declineCookies" class="btn-decline">Decline</button>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4>Contact Information</h4>
+        <p>📞 <a href="tel:+49123456789">+49 123 456 789</a></p>
+        <p>📧 <a href="mailto:contact@korbindallas.de">contact@korbindallas.de</a></p>
+        <p>📍 Germany</p>
+      </div>
+      
+      <div class="footer-section">
+        <h4>Follow Me</h4>
+        <div class="social-links">
+          <a href="https://instagram.com/korbindallas" target="_blank" aria-label="Instagram">
+            <img src="images/ui/instagram.svg" alt="Instagram"> @korbindallas
+          </a>
+        </div>
+      </div>
+      
+      <div class="footer-section">
+        <h4>Legal</h4>
+        <p><a href="privacy-policy.html">Privacy Policy</a></p>
+        <p><a href="terms.html">Terms of Service</a></p>
+        <p><a href="impressum.html">Impressum</a></p>
       </div>
     </div>
-  </div>
+    
+    <div class="footer-bottom">
+      <p>© 2025 Korbin Dallas Art Gallery. All rights reserved.</p>
+    </div>
+  </footer>
 
   <script src="js/main.js"></script>
   <script src="js/analytics.js"></script>
@@ -334,6 +339,78 @@
           }
         });
       });
+    });
+  </script>
+
+  <!-- Cookie Consent Popup -->
+  <div id="cookie-consent-overlay" class="cookie-overlay">
+    <div class="cookie-popup">
+      <div class="cookie-content">
+        <h3>🍪 Cookie Consent</h3>
+        <p>We use cookies to improve your browsing experience, analyze site traffic, and track website analytics. By continuing to use this website, you consent to our use of cookies.</p>
+        <p>For more information, please read our <a href="privacy-policy.html" target="_blank">Privacy Policy</a>.</p>
+        <div class="cookie-buttons">
+          <button id="cookie-accept" class="cookie-btn accept">Accept All Cookies</button>
+          <button id="cookie-reject" class="cookie-btn reject">Reject Non-Essential</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Cookie Consent Management
+    class CookieConsent {
+      constructor() {
+        this.init();
+      }
+
+      init() {
+        // Check if user has already given consent
+        const hasConsent = localStorage.getItem('cookie-consent');
+        if (!hasConsent) {
+          this.showPopup();
+        } else {
+          this.hidePopup();
+        }
+
+        // Bind event listeners
+        document.getElementById('cookie-accept').addEventListener('click', () => this.acceptCookies());
+        document.getElementById('cookie-reject').addEventListener('click', () => this.rejectCookies());
+      }
+
+      showPopup() {
+        const overlay = document.getElementById('cookie-consent-overlay');
+        overlay.style.display = 'flex';
+        document.body.style.overflow = 'hidden'; // Prevent scrolling
+      }
+
+      hidePopup() {
+        const overlay = document.getElementById('cookie-consent-overlay');
+        overlay.style.display = 'none';
+        document.body.style.overflow = 'auto'; // Restore scrolling
+      }
+
+      acceptCookies() {
+        localStorage.setItem('cookie-consent', 'accepted');
+        localStorage.setItem('cookie-analytics', 'true');
+        this.hidePopup();
+        // Initialize analytics if accepted
+        if (window.websiteAnalytics) {
+          window.websiteAnalytics.init();
+        }
+      }
+
+      rejectCookies() {
+        localStorage.setItem('cookie-consent', 'rejected');
+        localStorage.setItem('cookie-analytics', 'false');
+        this.hidePopup();
+        // Don't initialize analytics if rejected
+      }
+    }
+
+    // Initialize cookie consent
+    document.addEventListener('DOMContentLoaded', () => {
+      window.cookieConsent = new CookieConsent();
     });
   </script>
 </body>

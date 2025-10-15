@@ -83,11 +83,13 @@ header {
 }
 @media (max-width: 768px) {
   .navbar {
-    padding: 1rem;
-    min-height: 60px;
+    padding: 0.7rem;
+    min-height: 42px;
+    max-width: none;
+    margin: 0;
   }
   .site-logo {
-    height: 48px;
+    height: 40px;
   }
   .nav-links {
     gap: 2rem;
@@ -144,10 +146,24 @@ header {
   margin-left: 0;
   margin-right: 0;
 }
-@media (max-width: 700px) {
-  body, main, .gallery, .gallery-title {
+@media (max-width: 768px) {
+  /* Remove auto margins on all major containers for full-width mobile layout */
+  body, main, .gallery, .gallery-title,
+  .hero-content, .gallery-hero, .newsletter-container,
+  .featured-section, .medium-section, .recent-section,
+  .footer-content, .footer-bottom, .about-content,
+  .contact-container, .legal-container {
     margin-left: 0 !important;
     margin-right: 0 !important;
+    max-width: none !important;
+  }
+  
+  /* Consistent 1rem side margins for all content sections */
+  .hero, .featured-artwork, .artist-intro, .newsletter-section,
+  .about-content, .contact-container, .legal-container,
+  .gallery-hero, .footer-content, .gallery-nav {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
   }
 }
 /* Donate button styles */
@@ -213,18 +229,17 @@ header {
 }
 .blur-container {
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   width: 100%;
-  max-width: 1024px;
+  height: 300px;
+  margin-bottom: 1rem;
   overflow: hidden;
+  display: block;
 }
 .blurred {
-  filter: blur(18px);
+  filter: blur(12px);
   transition: filter 0.3s;
   width: 100%;
-  height: 250px;
+  height: 300px;
   object-fit: cover;
   display: block;
 }
@@ -244,18 +259,22 @@ header {
   align-items: center;
   justify-content: center;
   font-size: 1.2rem;
-  border-radius: 8px;
+  border-radius: 0;
   pointer-events: auto;
 }
 .reveal-btn {
   margin-top: 0.7rem;
   padding: 0.5rem 1.2rem;
-  background: #333;
+  background: #e91e63;
   color: #fff;
   border: none;
   border-radius: 4px;
   cursor: pointer;
   font-size: 1rem;
+}
+
+.reveal-btn:hover {
+  background: #c2185b;
 }
 .animate-fade-in {
   opacity: 0;
@@ -512,6 +531,7 @@ nav {
     gap: 0.5rem;
     margin: 1rem 0 2rem 0;
     padding: 0 1rem;
+    max-width: none;
   }
   
   .category-btn {
@@ -537,6 +557,17 @@ nav {
   
   .gallery-section {
     padding: 0 1rem;
+    margin: 0 0 4rem 0;
+    max-width: none;
+  }
+  
+  .gallery {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .card {
+    margin: 0;
   }
 }
 
@@ -1855,132 +1886,121 @@ footer p {
     }
 }
 
-/* Enhanced Footer Styles - Modern Design */
+/* Simple Footer Styles - Clean Design with Brand Color */
 footer {
-    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+    background-color: #1F687D; /* Brand color - teal/blue-green */
     color: white;
-    padding: 40px 0 20px 0;
-    margin-top: 60px;
-    position: relative;
-}
-
-footer::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    padding: 15px 0 0 0;
+    margin-top: 30px;
 }
 
 .footer-content {
     max-width: 1200px;
     margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
     padding: 0 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.footer-section {
+    margin-bottom: 20px;
 }
 
 .footer-section h4 {
-    color: #ecf0f1;
-    margin-bottom: 15px;
-    font-size: 1.1rem;
-    font-weight: 600;
-    position: relative;
-    padding-bottom: 8px;
-}
-
-.footer-section h4::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 30px;
-    height: 2px;
-    background: #3498db;
-    border-radius: 1px;
+    color: white;
+    margin-bottom: 10px;
+    font-size: 1rem;
+    font-weight: normal;
 }
 
 .footer-section p {
-    margin-bottom: 10px;
-    line-height: 1.6;
-    color: #bdc3c7;
-    font-size: 0.95rem;
+    margin-bottom: 5px;
+    line-height: 1.5;
+    color: white;
+    font-size: 0.9rem;
+    font-weight: normal;
 }
 
 .footer-section a {
-    color: #ecf0f1;
+    color: white;
     text-decoration: none;
-    transition: all 0.3s ease;
-    display: inline-flex;
-    align-items: center;
+    font-weight: normal;
 }
 
 .footer-section a:hover {
-    color: #3498db;
-    transform: translateX(2px);
+    text-decoration: underline;
 }
 
 .footer-section .social-links a {
     display: flex;
     align-items: center;
     gap: 10px;
-    margin-bottom: 12px;
-    padding: 5px 0;
-    border-radius: 4px;
-    transition: all 0.3s ease;
+    margin-bottom: 5px;
+    color: white;
+    text-decoration: none;
+    font-weight: normal;
 }
 
 .footer-section .social-links a:hover {
-    background: rgba(255, 255, 255, 0.1);
-    padding-left: 8px;
+    text-decoration: underline;
 }
 
 .footer-section .social-links img {
     width: 18px;
     height: 18px;
     filter: invert(1);
-    transition: filter 0.3s ease;
-}
-
-.footer-section .social-links a:hover img {
-    filter: invert(0.4) sepia(1) saturate(3) hue-rotate(180deg);
 }
 
 .footer-bottom {
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    margin-top: 30px;
-    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    margin-top: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
     text-align: center;
-    color: #95a5a6;
+    color: white;
     max-width: 1200px;
     margin-left: auto;
     margin-right: auto;
     padding-left: 20px;
     padding-right: 20px;
     font-size: 0.9rem;
+    font-weight: normal;
+}
+
+.footer-bottom p {
+    margin: 0;
+    padding: 0;
 }
 
 @media (max-width: 768px) {
     .footer-content {
         grid-template-columns: 1fr;
-        gap: 25px;
+        gap: 10px;
+        text-align: left;
     }
     
     footer {
-        padding: 30px 0 15px 0;
-        margin-top: 40px;
+        padding: 10px 0;
+        margin-top: 20px;
     }
     
     .footer-section {
-        text-align: center;
+        margin-bottom: 8px;
     }
     
-    .footer-section h4::after {
-        left: 50%;
-        transform: translateX(-50%);
+    .footer-section h4 {
+        font-size: 0.95rem;
+    }
+    
+    .footer-section p {
+        font-size: 0.85rem;
+    }
+    
+    .footer-bottom {
+        font-size: 0.85rem;
+        padding-top: 5px;
+        text-align: left;
     }
 }
 

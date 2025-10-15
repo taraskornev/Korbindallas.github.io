@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <!-- SEO Meta Tags -->
+  <title data-translate="page-title">Мой арт--магазин</title>
+  <meta name="description" content="Professional art gallery featuring AI-generated art, photography, and traditional paintings. Explore unique artworks and commission custom pieces.">
+  <meta name="keywords" content="art gallery, AI art, photography, paintings, custom art, commissions">
+  <meta name="author" content="Your Artist Name">
+  
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="My Art Shop - Professional Art Gallery">
+  <meta property="og:description" content="Explore my world of colors and emotions through AI art, photography, and traditional paintings.">
+  <meta property="og:image" content="images/logo/logo_1-01.png">
+  <meta property="og:url" content="https://taraskornev.github.io/Korbindallas.github.io">
+  <meta property="og:type" content="website">
+  
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="My Art Shop - Professional Art Gallery">
+  <meta name="twitter:description" content="Explore my world of colors and emotions through AI art, photography, and traditional paintings.">
+  <meta name="twitter:image" content="images/logo/logo_1-01.png">
+  
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'GA_MEASUREMENT_ID');
+  </script>
+  
+  <!-- Structured Data (Schema.org) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Your Artist Name",
+    "jobTitle": "Visual Artist",
+    "description": "Professional artist specializing in AI-generated art, photography, and traditional paintings",
+    "url": "https://taraskornev.github.io/Korbindallas.github.io",
+    "image": "https://taraskornev.github.io/Korbindallas.github.io/images/logo/logo_1-01.png",
+    "sameAs": [
+      "https://instagram.com/yourusername",
+      "https://facebook.com/yourusername"
+    ],
+    "knowsAbout": ["Digital Art", "AI Art", "Photography", "Traditional Painting", "Mixed Media"],
+    "hasOccupation": {
+      "@type": "Occupation",
+      "name": "Visual Artist",
+      "occupationLocation": {
+        "@type": "Place",
+        "name": "Artist Studio"
+      }
+    },
+    "offers": {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Custom Art Commissions",
+        "description": "Custom artwork creation including digital art, photography, and traditional paintings"
+      },
+      "availability": "InStock",
+      "priceCurrency": "EUR"
+    }
+  }
+  </script>
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "My Art Shop",
+    "description": "Professional art gallery featuring AI-generated art, photography, and traditional paintings",
+    "url": "https://taraskornev.github.io/Korbindallas.github.io",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://taraskornev.github.io/Korbindallas.github.io/gallery.html?search={search_term_string}",
+      "query-input": "required name=search_term_string"
+    },
+    "mainEntity": {
+      "@type": "ImageGallery",
+      "name": "Art Gallery",
+      "description": "Collection of AI art, photography, and traditional paintings"
+    }
+  }
+  </script>
+  
+  <!-- Additional SEO Meta Tags -->
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="googlebot" content="index, follow">
+  <link rel="canonical" href="https://taraskornev.github.io/Korbindallas.github.io/">
+  <meta name="theme-color" content="#333333">
+  
+  <!-- Favicon and Icons -->
+  <link rel="icon" type="image/png" sizes="32x32" href="images/logo/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="images/logo/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/logo/apple-touch-icon.png">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header>
+    <div class="navbar">
+      <a href="index.html" class="logo-link">
+        <img src="images/logo/logo_1-01.png" alt="Site Logo" class="site-logo">
+      </a>
+      <div class="language-switch">
+        <button id="language-toggle" class="lang-btn" title="Switch Language">
+          <span class="lang-text">EN</span>
+          <span class="lang-text">DE</span>
+        </button>
+      </div>
+      <button class="menu-toggle" aria-label="Меню">&#9776;</button>
+      <nav class="nav-links">
+        <a href="index.html" data-translate="nav-home">Home</a>
+        <a href="gallery.html" data-translate="nav-gallery">Gallery</a>
+        <a href="about.html" data-translate="nav-about">About&nbsp;Me</a>
+        <a href="contact.html" data-translate="nav-contact">Contact</a>
+        <a href="donate.html" class="donate-btn" data-translate="nav-donate">Donate</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+          <h1 data-translate="hero-title">My world of colors and emotions</h1>
+          <p data-translate="hero-desc">Paintings made with soul. Welcome!</p>
+          <a href="gallery.html" class="btn" data-translate="hero-btn">View Gallery</a>
+    </section>
+
+    <!-- Featured Artwork Section -->
+    <section class="featured-artwork">
+      <h2 data-translate="featured-title">Featured Artwork</h2>
+      <div class="featured-grid">
+        <div class="featured-item">
+          <img src="images/paintings/ComfyUI_00131_.png" alt="Featured AI Art">
+          <div class="featured-info">
+            <h3 data-translate="featured-digital-title">Digital Dreams</h3>
+            <p data-translate="featured-digital-desc">AI Generated Art • Created with advanced neural networks, this piece explores the intersection of technology and creativity.</p>
+          </div>
+        </div>
+        <div class="featured-item">
+          <img src="images/paintings/ComfyUI_00110_.png" alt="Featured Photography">
+          <div class="featured-info">
+            <h3 data-translate="featured-urban-title">Urban Reflections</h3>
+            <p data-translate="featured-urban-desc">Photography • Captured during golden hour, showcasing the beauty of urban architecture and natural light.</p>
+          </div>
+        </div>
+        <div class="featured-item">
+          <img src="images/paintings/ComfyUI_temp_xnnnr_00001_.png" alt="Featured Painting">
+          <div class="featured-info">
+            <h3 data-translate="featured-abstract-title">Abstract Emotions</h3>
+            <p data-translate="featured-abstract-desc">Traditional Painting • Mixed media on canvas, expressing deep emotions through color and form.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Artist Introduction Section -->
+    <section class="artist-intro">
+      <div class="intro-content">
+        <div class="intro-text">
+          <h2 data-translate="intro-title">About My Artistic Journey</h2>
+          <p data-translate="intro-paragraph1">I create art that bridges the gap between traditional techniques and cutting-edge technology. My work spans across AI-generated art, photography, and traditional paintings, each medium offering unique ways to express creativity and emotion.</p>
+          <p data-translate="intro-paragraph2">Every piece tells a story - whether crafted with brushes and paint, captured through a lens, or born from algorithms and imagination. I believe art should inspire, provoke thought, and connect with the viewer on a personal level.</p>
+          <a href="about.html" class="learn-more-btn" data-translate="intro-learn-more">Learn More About Me</a>
+        </div>
+        <div class="intro-image">
+          <img src="images/ui/profile.jpg" alt="Artist at work" style="width: 300px; height: 400px; object-fit: cover; border-radius: 8px;">
+        </div>
+      </div>
+    </section>
+
+    <!-- Three-Medium Preview Section -->
+    <section class="medium-preview">
+      <h2 data-translate="medium-title">Explore My Art</h2>
+      <div class="medium-grid">
+        <div class="medium-card">
+          <img src="images/paintings/ComfyUI_temp_vrugl_00003_.jpg" alt="AI Art Preview">
+          <div class="medium-info">
+            <h3 data-translate="medium-ai-title">AI Generated Art</h3>
+            <p data-translate="medium-ai-desc">Cutting-edge digital creations using artificial intelligence and machine learning algorithms.</p>
+            <a href="gallery.html" class="medium-btn" data-translate="medium-ai-btn">Explore AI Art</a>
+          </div>
+        </div>
+        <div class="medium-card">
+          <img src="images/paintings/ComfyUI_00110_.png" alt="Photography Preview">
+          <div class="medium-info">
+            <h3 data-translate="medium-photo-title">Photography</h3>
+            <p data-translate="medium-photo-desc">Capturing moments, emotions, and beauty through the lens of creative vision.</p>
+            <a href="gallery.html" class="medium-btn" data-translate="medium-photo-btn">View Photography</a>
+          </div>
+        </div>
+        <div class="medium-card">
+          <img src="images/paintings/ComfyUI_00131_.png" alt="Paintings Preview">
+          <div class="medium-info">
+            <h3 data-translate="medium-painting-title">Traditional Paintings</h3>
+            <p data-translate="medium-painting-desc">Hand-crafted artwork using traditional mediums like oil, acrylic, and mixed media.</p>
+            <a href="gallery.html" class="medium-btn" data-translate="medium-painting-btn">See Paintings</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Recent Work Section -->
+    <section class="recent-work">
+      <h2 data-translate="recent-title">Latest Creations</h2>
+      <div class="recent-grid">
+        <div class="recent-item">
+          <img src="images/paintings/ComfyUI_temp_eviof_00001_.png" alt="Recent Work 1">
+          <div class="recent-info">
+            <h4 data-translate="recent-ai-title">New AI Series</h4>
+            <p class="recent-date">October 2025</p>
+            <p data-translate="recent-ai-desc">Exploring new techniques in AI art generation with focus on abstract expressionism.</p>
+          </div>
+        </div>
+        <div class="recent-item">
+          <img src="images/paintings/ComfyUI_00110_.png" alt="Recent Work 2">
+          <div class="recent-info">
+            <h4 data-translate="recent-urban-title">Urban Photography Collection</h4>
+            <p class="recent-date">September 2025</p>
+            <p data-translate="recent-urban-desc">Street photography series capturing the essence of city life and human connections.</p>
+          </div>
+        </div>
+        <div class="recent-item">
+          <img src="images/paintings/ComfyUI_temp_xnnnr_00001_.png" alt="Recent Work 3">
+          <div class="recent-info">
+            <h4 data-translate="recent-mixed-title">Mixed Media Experiments</h4>
+            <p class="recent-date">August 2025</p>
+            <p data-translate="recent-mixed-desc">New traditional painting techniques combining various mediums and textures.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Collector Testimonials Section -->
+    <section class="testimonials-section">
+      <h2>What Collectors Say</h2>
+      <div class="testimonials-grid">
+        <div class="testimonial">
+          <div class="testimonial-content">
+            <p>"The AI art pieces are absolutely revolutionary. The way technology meets creativity is breathtaking."</p>
+            <div class="testimonial-author">
+              <strong>— Sarah Chen</strong>
+              <span>Art Collector, Berlin</span>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial">
+          <div class="testimonial-content">
+            <p>"I own three pieces from different mediums. The quality and emotional depth across all categories is remarkable."</p>
+            <div class="testimonial-author">
+              <strong>— Michael Rodriguez</strong>
+              <span>Gallery Owner, Madrid</span>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial">
+          <div class="testimonial-content">
+            <p>"The photography work captures moments I never knew existed. Pure artistic vision."</p>
+            <div class="testimonial-author">
+              <strong>— Emma Thompson</strong>
+              <span>Private Collector, London</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Call-to-Action Section -->
+    <section class="cta-section">
+      <div class="cta-content">
+        <h2>Ready to Own a Piece?</h2>
+        <p>Commission custom artwork, stay updated with new releases, or connect with me for collaborations.</p>
+        <div class="cta-buttons">
+          <a href="contact.html" class="cta-btn primary">Commission Artwork</a>
+          <a href="contact.html" class="cta-btn secondary">Get in Touch</a>
+        </div>
+        <div class="newsletter">
+          <h3>Stay Updated</h3>
+          <p>Be the first to see new artwork and exclusive releases.</p>
+          <form class="newsletter-form">
+            <input type="email" placeholder="Enter your email" required>
+            <button type="submit">Subscribe</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+  <p data-i18n="footer">© 2025 My Art Shop</p>
+  <div class="social-links">
+    <a href="https://instagram.com/" target="_blank" aria-label="Instagram">
+      <img src="images/ui/instagram.svg" alt="Instagram">
+    </a>
+    <a href="https://facebook.com/" target="_blank" aria-label="Facebook">
+      <img src="images/ui/facebook.svg" alt="Facebook">
+    </a>
+    <a href="https://twitter.com/" target="_blank" aria-label="Twitter">
+      <img src="images/ui/twitter.svg" alt="Twitter">
+    </a>
+  </div>
+  </footer>
+
+  <!-- Cookie Consent Banner -->
+  <div id="cookieConsent" class="cookie-consent">
+    <div class="cookie-content">
+      <p>🍪 We use cookies to track page visits and improve your experience. By continuing to browse, you accept our use of cookies.</p>
+      <div class="cookie-buttons">
+        <button id="acceptCookies" class="btn-accept">Accept All</button>
+        <button id="declineCookies" class="btn-decline">Decline</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

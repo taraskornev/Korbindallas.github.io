@@ -1,0 +1,14 @@
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://yourusername.github.io/my-art-shop/sitemap.xml
+
+# Disallow unnecessary files
+Disallow: /*.css$
+Disallow: /*.js$
+Disallow: /images/ui/
+
+# Allow image indexing for SEO
+Allow: /images/paintings/
+Allow: /images/logo/

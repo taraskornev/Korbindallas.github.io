@@ -1,0 +1,7 @@
+<!-- Placeholder for icon-192x192.png -->
+<!-- This would be replaced with actual 192x192 PNG icon generated from your logo -->
+<svg xmlns="http://www.w3.org/2000/svg" width="192" height="192" viewBox="0 0 192 192">
+  <rect width="192" height="192" fill="#2c2c2c"/>
+  <text x="96" y="96" text-anchor="middle" dominant-baseline="middle" fill="white" font-family="Arial" font-size="24">ART</text>
+  <circle cx="96" cy="120" r="20" fill="none" stroke="white" stroke-width="2"/>
+</svg>

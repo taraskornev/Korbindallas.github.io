@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO Meta Tags -->
+  <title data-translate="gallery-page-title">Галерея — Мой арт-магазин</title>
+  <meta name="description" content="Browse my complete art gallery featuring AI-generated art, photography, and traditional paintings. Filter by medium and discover unique artworks.">
+  <meta name="keywords" content="art gallery, AI art collection, photography portfolio, paintings gallery">
+  
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Art Gallery - AI Art, Photography & Paintings">
+  <meta property="og:description" content="Explore my complete collection of artworks including AI-generated art, photography, and traditional paintings.">
+  <meta property="og:image" content="images/paintings/ComfyUI_00131_.png">
+  <meta property="og:url" content="https://taraskornev.github.io/Korbindallas.github.io/gallery.html">
+  <meta property="og:type" content="website">
+  
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Art Gallery - AI Art, Photography & Paintings">
+  <meta name="twitter:description" content="Explore my complete collection of artworks including AI-generated art, photography, and traditional paintings.">
+  <meta name="twitter:image" content="images/paintings/ComfyUI_00131_.png">
+  
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'GA_MEASUREMENT_ID');
+  </script>
+  
+  <!-- Structured Data for Image Gallery -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ImageGallery",
+    "name": "Art Gallery",
+    "description": "Professional art collection featuring AI-generated art, photography, and traditional paintings",
+    "url": "https://taraskornev.github.io/Korbindallas.github.io/gallery.html",
+    "creator": {
+      "@type": "Person",
+      "name": "Your Artist Name"
+    },
+    "mainEntity": [
+      {
+        "@type": "VisualArtwork",
+        "name": "Digital Dreams",
+        "artform": "Digital Art",
+        "artMedium": "AI Generated",
+        "image": "https://taraskornev.github.io/Korbindallas.github.io/images/paintings/ComfyUI_00131_.png",
+        "creator": {
+          "@type": "Person",
+          "name": "Your Artist Name"
+        },
+        "dateCreated": "2025",
+        "description": "AI Generated Art created with advanced neural networks"
+      },
+      {
+        "@type": "VisualArtwork",
+        "name": "Urban Reflections",
+        "artform": "Photography",
+        "artMedium": "Digital Photography",
+        "image": "https://taraskornev.github.io/Korbindallas.github.io/images/paintings/ComfyUI_00110_.png",
+        "creator": {
+          "@type": "Person",
+          "name": "Your Artist Name"
+        },
+        "dateCreated": "2025",
+        "description": "Street photography capturing urban architecture and natural light"
+      },
+      {
+        "@type": "VisualArtwork",
+        "name": "Abstract Emotions",
+        "artform": "Painting",
+        "artMedium": "Mixed Media",
+        "image": "https://taraskornev.github.io/Korbindallas.github.io/images/paintings/ComfyUI_temp_xnnnr_00001_.png",
+        "creator": {
+          "@type": "Person",
+          "name": "Your Artist Name"
+        },
+        "dateCreated": "2025",
+        "description": "Mixed media on canvas expressing deep emotions through color and form"
+      }
+    ]
+  }
+  </script>
+  
+  <!-- Additional SEO Meta Tags -->
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://taraskornev.github.io/Korbindallas.github.io/gallery.html">
+  
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <div class="navbar">
+      <a href="index.html" class="logo-link">
+        <img src="images/logo/logo_1-01.png" alt="Site Logo" class="site-logo">
+      </a>
+      <div class="language-switch">
+        <button id="language-toggle" class="lang-btn" title="Switch Language">
+          <span class="lang-text">EN</span>
+          <span class="lang-text">DE</span>
+        </button>
+      </div>
+      <button class="menu-toggle" aria-label="Меню">&#9776;</button>
+      <nav class="nav-links">
+        <a href="index.html" data-translate="nav-home">Home</a>
+        <a href="gallery.html" data-translate="nav-gallery">Gallery</a>
+        <a href="about.html" data-translate="nav-about">About&nbsp;Me</a>
+        <a href="contact.html" data-translate="nav-contact">Contact</a>
+        <a href="donate.html" class="donate-btn" data-translate="nav-donate">Donate</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+  <!-- Gallery Category Navigation -->
+  <div class="gallery-nav">
+    <button class="category-btn active" data-category="all" data-translate="filter-all">All&nbsp;Works</button>
+    <button class="category-btn" data-category="photography" data-translate="filter-photography">Photography</button>
+    <button class="category-btn" data-category="paintings" data-translate="filter-paintings">Paintings</button>
+    <button class="category-btn" data-category="ai" data-translate="filter-ai">AI Art</button>
+  </div>
+
+  <div id="lightbox-modal" class="lightbox-modal" style="display:none;">
+    <span class="lightbox-close">&times;</span>
+    <img class="lightbox-img" src="" alt="Artwork">
+    <div class="lightbox-nav">
+      <button class="lightbox-prev">&#8592;</button>
+      <button class="lightbox-next">&#8594;</button>
+    </div>
+  </div>
+  <!-- Photography Section -->
+  <div class="gallery-section" data-category="photography">
+    <div class="gallery">
+      <div class="card animate-fade-in" data-category="photography" data-artwork-id="urban-moments">
+        <img src="images/paintings/ComfyUI_00131_.png" alt="Street Photography 1">
+        <h2>Urban Moments</h2>
+        <p>Digital Photography — Street Series</p>
+        <div class="engagement-bar">
+          <button class="engagement-btn like-btn" data-artwork-id="urban-moments">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+            </svg>
+            <span class="like-count">0</span>
+          </button>
+          <button class="engagement-btn share-btn" data-artwork-id="urban-moments">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92-1.31-2.92-2.92-2.92z"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div class="card animate-fade-in" data-category="photography" data-artwork-id="portrait-study">
+        <img src="images/paintings/ComfyUI_00110_.png" alt="Portrait Photography">
+        <h2>Portrait Study</h2>
+        <p>Digital Photography — Studio Series</p>
+        <div class="engagement-bar">
+          <button class="engagement-btn like-btn" data-artwork-id="portrait-study">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+            </svg>
+            <span class="like-count">0</span>
+          </button>
+          <button class="engagement-btn share-btn" data-artwork-id="portrait-study">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92-1.31-2.92-2.92-2.92z"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div class="card animate-fade-in" data-category="photography" data-artwork-id="natural-light">
+        <img src="images/paintings/ComfyUI_temp_xnnnr_00001_.png" alt="Nature Photography">
+        <h2>Natural Light</h2>
+        <p>Digital Photography — Landscape Series</p>
+        <div class="engagement-bar">
+          <button class="engagement-btn like-btn" data-artwork-id="natural-light">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+            </svg>
+            <span class="like-count">0</span>
+          </button>
+          <button class="engagement-btn share-btn" data-artwork-id="natural-light">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92-1.31-2.92-2.92-2.92z"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Paintings Section -->
+  <div class="gallery-section" data-category="paintings">
+    <div class="gallery">
+      <div class="card animate-fade-in" data-category="paintings" data-artwork-id="abstract-dreams">
+        <img src="images/paintings/ComfyUI_00131_.png" alt="Abstract Dreams">
+        <h2>Abstract Dreams</h2>
+        <p>Mixed media — 60x60 cm</p>
+        <div class="engagement-bar">
+          <button class="engagement-btn like-btn" data-artwork-id="abstract-dreams">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+            </svg>
+            <span class="like-count">0</span>
+          </button>
+          <button class="engagement-btn share-btn" data-artwork-id="abstract-dreams">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92-1.31-2.92-2.92-2.92z"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div class="card unsafe animate-fade-in" data-category="paintings" data-artwork-id="expressive-forms">
+        <div class="blur-container">
+          <img src="images/paintings/ComfyUI_01181_a_Balls_1024.jpg" alt="Painting 1" class="blurred">
+          <div class="warning-overlay">
+            <span>⚠️ Sensitive Content</span>
+            <button class="reveal-btn">Click to reveal</button>
+          </div>
+        </div>
+        <h2>Expressive Forms</h2>
+        <p>Acrylic, canvas — 40x60 cm</p>
+        <div class="engagement-bar">
+          <button class="engagement-btn like-btn" data-artwork-id="expressive-forms">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+            </svg>
+            <span class="like-count">0</span>
+          </button>
+          <button class="engagement-btn share-btn" data-artwork-id="expressive-forms">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92-1.31-2.92-2.92-2.92z"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div class="card unsafe animate-fade-in" data-category="paintings" data-artwork-id="color-symphony">
+        <div class="blur-container">
+          <img src="images/paintings/ComfyUI_temp_eviof_00001_.png" alt="Painting 2" class="blurred">
+          <div class="warning-overlay">
+            <span>⚠️ Sensitive Content</span>
+            <button class="reveal-btn">Click to reveal</button>
+          </div>
+        </div>
+        <h2>Color Symphony</h2>
+        <p>Oil, canvas — 50x70 cm</p>
+        <div class="engagement-bar">
+          <button class="engagement-btn like-btn" data-artwork-id="color-symphony">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+            </svg>
+            <span class="like-count">0</span>
+          </button>
+          <button class="engagement-btn share-btn" data-artwork-id="color-symphony">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92-1.31-2.92-2.92-2.92z"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div class="card animate-fade-in" data-category="paintings" data-artwork-id="modern-expression">
+        <img src="images/paintings/ComfyUI_00134_.png" alt="Modern Expression">
+        <h2>Modern Expression</h2>
+        <p>Mixed media, canvas — 45x65 cm</p>
+        <div class="engagement-bar">
+          <button class="engagement-btn like-btn" data-artwork-id="modern-expression">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+            </svg>
+            <span class="like-count">0</span>
+          </button>
+          <button class="engagement-btn share-btn" data-artwork-id="modern-expression">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92-1.31-2.92-2.92-2.92z"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- AI Art Section -->
+  <div class="gallery-section" data-category="ai">
+    <div class="gallery">
+      <div class="card unsafe animate-fade-in" data-category="ai" data-artwork-id="digital-dreams">
+        <div class="blur-container">
+          <img src="images/paintings/ComfyUI_temp_vrugl_00003_.jpg" alt="AI Art 1" class="blurred">
+          <div class="warning-overlay">
+            <span>⚠️ Sensitive Content</span>
+            <button class="reveal-btn">Click to reveal</button>
+          </div>
+        </div>
+        <h2>Digital Dreams</h2>
+        <p>AI Generated — Digital Print 30x40 cm</p>
+        <div class="engagement-bar">
+          <button class="engagement-btn like-btn" data-artwork-id="digital-dreams">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+            </svg>
+            <span class="like-count">0</span>
+          </button>
+          <button class="engagement-btn share-btn" data-artwork-id="digital-dreams">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92-1.31-2.92-2.92-2.92z"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div class="card animate-fade-in" data-category="ai" data-artwork-id="algorithmic-beauty">
+        <img src="images/paintings/ComfyUI_temp_xnnnr_00001_.png" alt="AI Art 2">
+        <h2>Algorithmic Beauty</h2>
+        <p>AI Generated — Digital Print 60x80 cm</p>
+        <div class="engagement-bar">
+          <button class="engagement-btn like-btn" data-artwork-id="algorithmic-beauty">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+            </svg>
+            <span class="like-count">0</span>
+          </button>
+          <button class="engagement-btn share-btn" data-artwork-id="algorithmic-beauty">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92-1.31-2.92-2.92-2.92z"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div class="card animate-fade-in" data-category="ai" data-artwork-id="neural-networks">
+        <img src="images/paintings/ComfyUI_00110_.png" alt="AI Art 3">
+        <h2>Neural Networks</h2>
+        <p>AI Generated — Digital Print 50x50 cm</p>
+        <div class="engagement-bar">
+          <button class="engagement-btn like-btn" data-artwork-id="neural-networks">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+            </svg>
+            <span class="like-count">0</span>
+          </button>
+          <button class="engagement-btn share-btn" data-artwork-id="neural-networks">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92-1.31-2.92-2.92-2.92z"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  </main>
+
+  <footer>
+  <p data-i18n="footer">© 2025 My Art Shop</p>
+  <div class="social-links">
+    <a href="https://instagram.com/" target="_blank" aria-label="Instagram">
+      <img src="images/ui/instagram.svg" alt="Instagram">
+    </a>
+    <a href="https://facebook.com/" target="_blank" aria-label="Facebook">
+      <img src="images/ui/facebook.svg" alt="Facebook">
+    </a>
+    <a href="https://twitter.com/" target="_blank" aria-label="Twitter">
+      <img src="images/ui/twitter.svg" alt="Twitter">
+    </a>
+  </div>
+  </footer>
+
+  <!-- Cookie Consent Banner -->
+  <div id="cookieConsent" class="cookie-consent">
+    <div class="cookie-content">
+      <p>🍪 We use cookies to track page visits and improve your experience. By continuing to browse, you accept our use of cookies.</p>
+      <div class="cookie-buttons">
+        <button id="acceptCookies" class="btn-accept">Accept All</button>
+        <button id="declineCookies" class="btn-decline">Decline</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

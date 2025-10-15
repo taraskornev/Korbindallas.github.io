@@ -1,0 +1,9 @@
+<!-- Placeholder for icon-512x512.png -->
+<!-- This would be replaced with actual 512x512 PNG icon generated from your logo -->
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <rect width="512" height="512" fill="#2c2c2c"/>
+  <text x="256" y="200" text-anchor="middle" dominant-baseline="middle" fill="white" font-family="Arial" font-size="64" font-weight="bold">MY ART</text>
+  <text x="256" y="280" text-anchor="middle" dominant-baseline="middle" fill="white" font-family="Arial" font-size="48">SHOP</text>
+  <circle cx="256" cy="380" r="60" fill="none" stroke="white" stroke-width="6"/>
+  <path d="M220 380 L256 344 L292 380" fill="none" stroke="white" stroke-width="4"/>
+</svg>

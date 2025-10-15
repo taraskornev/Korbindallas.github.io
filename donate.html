@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO Meta Tags -->
+  <title>Donate — My Art Shop</title>
+  <meta name="description" content="Support my artistic journey with a donation. Help fund new art projects, equipment, and creative development.">
+  <meta name="keywords" content="support artist, art donations, fund creativity, artist support, help artist">
+  
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Support My Art - Donate to Creative Projects">
+  <meta property="og:description" content="Support my artistic journey with a donation. Help fund new art projects, equipment, and creative development.">
+  <meta property="og:image" content="images/paintings/ComfyUI_00131_.png">
+  <meta property="og:url" content="https://taraskornev.github.io/Korbindallas.github.io/donate.html">
+  <meta property="og:type" content="website">
+  
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Support My Art - Donate to Creative Projects">
+  <meta name="twitter:description" content="Support my artistic journey with a donation. Help fund new art projects, equipment, and creative development.">
+  <meta name="twitter:image" content="images/paintings/ComfyUI_00131_.png">
+  
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'GA_MEASUREMENT_ID');
+  </script>
+  
+  <!-- Structured Data for Donation Page -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "DonateAction",
+    "name": "Support Artist",
+    "description": "Donate to support artistic projects and creative development",
+    "url": "https://taraskornev.github.io/Korbindallas.github.io/donate.html",
+    "recipient": {
+      "@type": "Person",
+      "@id": "https://taraskornev.github.io/Korbindallas.github.io/#person",
+      "name": "Your Artist Name",
+      "jobTitle": "Professional Artist"
+    },
+    "purpose": "Supporting artistic creation and creative projects"
+  }
+  </script>
+  
+  <!-- Additional SEO Meta Tags -->
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://taraskornev.github.io/Korbindallas.github.io/donate.html">
+  <meta name="theme-color" content="#2c2c2c">
+  
+  <!-- Favicons -->
+  <link rel="icon" type="image/x-icon" href="images/logo/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/logo/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="images/logo/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/logo/apple-touch-icon.png">
+  
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+  <header>
+    <div class="navbar">
+      <a href="index.html" class="logo-link">
+        <img src="images/logo/logo_1-01.png" alt="Site Logo" class="site-logo">
+      </a>
+      <div class="language-switch">
+        <button id="language-toggle" class="lang-btn" title="Switch Language">
+          <span class="lang-text">EN</span>
+          <span class="lang-text">DE</span>
+        </button>
+      </div>
+      <button class="menu-toggle" aria-label="Меню">&#9776;</button>
+      <nav class="nav-links">
+        <a href="index.html" data-translate="nav-home">Home</a>
+        <a href="gallery.html" data-translate="nav-gallery">Gallery</a>
+        <a href="about.html" data-translate="nav-about">About&nbsp;Me</a>
+        <a href="contact.html" data-translate="nav-contact">Contact</a>
+        <a href="donate.html" class="donate-btn" data-translate="nav-donate">Donate</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section class="donate-section animate-fade-in">
+      <h1>Support My Art</h1>
+      <p>If you enjoy my work and want to support me, you can make a donation below. Thank you for your kindness!</p>
+      <form class="donate-form">
+        <label for="amount">Donation Amount (€):</label>
+        <input type="number" id="amount" name="amount" min="1" required>
+        <button type="submit">Donate</button>
+      </form>
+    </section>
+  </main>
+  <footer>
+  <p data-i18n="footer">© 2025 My Art Shop</p>
+  <div class="social-links">
+    <a href="https://instagram.com/" target="_blank" aria-label="Instagram">
+      <img src="images/ui/instagram.svg" alt="Instagram">
+    </a>
+    <a href="https://facebook.com/" target="_blank" aria-label="Facebook">
+      <img src="images/ui/facebook.svg" alt="Facebook">
+    </a>
+    <a href="https://twitter.com/" target="_blank" aria-label="Twitter">
+      <img src="images/ui/twitter.svg" alt="Twitter">
+    </a>
+  </div>
+  </footer>
+
+  <!-- Cookie Consent Banner -->
+  <div id="cookieConsent" class="cookie-consent">
+    <div class="cookie-content">
+      <p>🍪 We use cookies to track page visits and improve your experience. By continuing to browse, you accept our use of cookies.</p>
+      <div class="cookie-buttons">
+        <button id="acceptCookies" class="btn-accept">Accept All</button>
+        <button id="declineCookies" class="btn-decline">Decline</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>

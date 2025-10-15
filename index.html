@@ -345,5 +345,19 @@
   </div>
 
   <script src="js/main.js"></script>
+  <script src="js/analytics.js"></script>
+  <script>
+    // Track Ko-fi button clicks
+    document.addEventListener('DOMContentLoaded', () => {
+      const kofiButtons = document.querySelectorAll('a[href*="ko-fi.com"]');
+      kofiButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          if (window.trackKofiClick) {
+            window.trackKofiClick();
+          }
+        });
+      });
+    });
+  </script>
 </body>
 </html>

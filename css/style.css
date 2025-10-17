@@ -35,7 +35,7 @@ header {
 
 /* Logo styling - C/O Berlin inspired */
 .site-logo {
-  height: 59px;
+  height: 55px; /* Increased from ~50px (10% larger) */
   width: auto;
   object-fit: contain;
   display: block;

@@ -346,12 +346,14 @@
   </script>
 
   <!-- Cookie Consent Popup -->
-  <div id="cookie-consent-overlay" class="cookie-overlay">
+  <div id="cookie-consent-overlay" class="cookie-overlay" style="display: none;">
     <div class="cookie-popup">
       <div class="cookie-content">
-        <p>We use cookies to improve your experience. <a href="privacy-policy.html" target="_blank">Learn more</a></p>
+        <h3>🍪 Cookie Consent</h3>
+        <p>We use cookies to improve your experience and analyze site traffic. By clicking "Accept", you consent to our use of cookies.</p>
+        <p><a href="privacy-policy.html" target="_blank" style="color: #4CAF50;">Learn more about our privacy policy</a></p>
         <div class="cookie-buttons">
-          <button id="cookie-accept" class="cookie-btn primary">Accept</button>
+          <button id="cookie-accept" class="cookie-btn primary">Accept All</button>
           <button id="cookie-reject" class="cookie-btn secondary">Decline</button>
         </div>
       </div>
@@ -359,60 +361,109 @@
   </div>
 
   <script>
-    // Cookie Consent Management
-    class CookieConsent {
-      constructor() {
-        this.init();
-      }
-
-      init() {
-        // Check if user has already given consent
-        const hasConsent = localStorage.getItem('cookie-consent');
-        if (!hasConsent) {
-          this.showPopup();
-        } else {
-          this.hidePopup();
+    // Improved Cookie Consent Management - Works in Incognito
+    (function() {
+      'use strict';
+      
+      const CONSENT_KEY = 'cookie-consent';
+      const ANALYTICS_KEY = 'cookie-analytics';
+      
+      function getCookieConsent() {
+        try {
+          return localStorage.getItem(CONSENT_KEY);
+        } catch (e) {
+          console.warn('localStorage not available:', e);
+          return null;
         }
-
-        // Bind event listeners
-        document.getElementById('cookie-accept').addEventListener('click', () => this.acceptCookies());
-        document.getElementById('cookie-reject').addEventListener('click', () => this.rejectCookies());
       }
-
-      showPopup() {
+      
+      function setCookieConsent(value) {
+        try {
+          localStorage.setItem(CONSENT_KEY, value);
+          localStorage.setItem(ANALYTICS_KEY, value === 'accepted' ? 'true' : 'false');
+          return true;
+        } catch (e) {
+          console.warn('Cannot save to localStorage:', e);
+          return false;
+        }
+      }
+      
+      function showCookiePopup() {
         const overlay = document.getElementById('cookie-consent-overlay');
-        overlay.style.display = 'flex';
-        // Don't block scrolling - let users scroll while considering
+        if (overlay) {
+          overlay.style.display = 'flex';
+          console.log('Cookie popup shown');
+        }
       }
-
-      hidePopup() {
+      
+      function hideCookiePopup() {
         const overlay = document.getElementById('cookie-consent-overlay');
-        overlay.style.display = 'none';
-        document.body.style.overflow = 'auto'; // Ensure scrolling is restored
+        if (overlay) {
+          overlay.style.display = 'none';
+          console.log('Cookie popup hidden');
+        }
       }
-
-      acceptCookies() {
-        localStorage.setItem('cookie-consent', 'accepted');
-        localStorage.setItem('cookie-analytics', 'true');
-        this.hidePopup();
-        // Initialize analytics if accepted
-        if (window.websiteAnalytics) {
+      
+      function acceptCookies() {
+        console.log('Cookies accepted');
+        setCookieConsent('accepted');
+        hideCookiePopup();
+        
+        // Initialize analytics if available
+        if (window.websiteAnalytics && typeof window.websiteAnalytics.init === 'function') {
           window.websiteAnalytics.init();
         }
+        if (typeof gtag === 'function') {
+          gtag('consent', 'update', {
+            'analytics_storage': 'granted'
+          });
+        }
       }
-
-      rejectCookies() {
-        localStorage.setItem('cookie-consent', 'rejected');
-        localStorage.setItem('cookie-analytics', 'false');
-        this.hidePopup();
-        // Don't initialize analytics if rejected
+      
+      function rejectCookies() {
+        console.log('Cookies rejected');
+        setCookieConsent('rejected');
+        hideCookiePopup();
+        
+        if (typeof gtag === 'function') {
+          gtag('consent', 'update', {
+            'analytics_storage': 'denied'
+          });
+        }
       }
-    }
-
-    // Initialize cookie consent
-    document.addEventListener('DOMContentLoaded', () => {
-      window.cookieConsent = new CookieConsent();
-    });
+      
+      // Initialize on page load
+      document.addEventListener('DOMContentLoaded', function() {
+        const consent = getCookieConsent();
+        
+        console.log('Cookie consent status:', consent);
+        
+        if (!consent) {
+          // No consent stored - show popup (works in Incognito)
+          setTimeout(showCookiePopup, 500); // Small delay for better UX
+        } else {
+          hideCookiePopup();
+          
+          // Initialize analytics if previously accepted
+          if (consent === 'accepted') {
+            if (window.websiteAnalytics && typeof window.websiteAnalytics.init === 'function') {
+              window.websiteAnalytics.init();
+            }
+          }
+        }
+        
+        // Bind button events
+        const acceptBtn = document.getElementById('cookie-accept');
+        const rejectBtn = document.getElementById('cookie-reject');
+        
+        if (acceptBtn) {
+          acceptBtn.addEventListener('click', acceptCookies);
+        }
+        if (rejectBtn) {
+          rejectBtn.addEventListener('click', rejectCookies);
+        }
+      });
+    })();
   </script>
   <script>
   // Safely match "View Gallery" button to footer background (avoid transparent)

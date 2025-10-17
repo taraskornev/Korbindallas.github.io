@@ -1,0 +1,33 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Update Website",
+      "type": "shell",
+      "command": "git add . ; git commit -m '${input:commitMessage}' ; git push origin master",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      }
+    },
+    {
+      "label": "🚀 Deploy Website NOW",
+      "type": "shell",
+      "command": "git add . ; git commit -m 'Auto-deploy website updates' ; git push origin master",
+      "problemMatcher": [],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    }
+  ],
+  "inputs": [
+    {
+      "id": "commitMessage",
+      "type": "promptString",
+      "description": "Commit message",
+      "default": "Update website"
+    }
+  ]
+}

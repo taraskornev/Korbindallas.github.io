@@ -128,11 +128,195 @@
   </header>
 
   <main>
-    <section class="hero">
-          <h1 data-translate="hero-title">My world of colors and emotions</h1>
-          <p data-translate="hero-desc">Paintings made with soul. Welcome!</p>
-          <a href="gallery.html" class="btn" data-translate="hero-btn">View Gallery</a>
+    <section class="hero hero-carousel">
+          <div class="carousel-container">
+            <div class="carousel-slide active" data-quote="1"></div>
+            <div class="carousel-slide" data-quote="2"></div>
+            <div class="carousel-slide" data-quote="3"></div>
+          </div>
+          <div class="hero-content">
+            <h1 class="hero-quote"></h1>
+            <p class="hero-author"></p>
+            <a href="gallery.html" class="btn" data-translate="hero-btn">View Gallery</a>
+          </div>
     </section>
+
+    <style>
+      .hero-carousel {
+        position: relative;
+        overflow: hidden;
+        margin: 0 !important;
+      }
+      
+      .carousel-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 0;
+      }
+      
+      .carousel-slide {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        opacity: 0;
+        transition: opacity 2s ease-in-out;
+        background-size: cover;
+        background-position: 50% 50%;
+        background-repeat: no-repeat;
+      }
+      
+      .carousel-slide:nth-child(1) { background-image: url('images/paintings/ComfyUI_00131_.png'); }
+      .carousel-slide:nth-child(2) { background-image: url('images/paintings/ComfyUI_00110_.png'); }
+      .carousel-slide:nth-child(3) { background-image: url('images/paintings/ComfyUI_temp_xnnnr_00001_.png'); }
+      
+      .carousel-slide.active {
+        opacity: 1;
+      }
+      
+      .hero-content {
+        position: relative;
+        z-index: 2;
+        text-align: left;
+        padding: 60px 20px;
+      }
+      
+      .hero-carousel::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0,0,0,0.5);
+        z-index: 1;
+      }
+      
+      /* Hero Quote Styling */
+      .hero-carousel .hero-quote {
+        color: #ffffff;
+        text-shadow: none;
+        font-size: 2.5rem;
+        font-weight: 300;
+        line-height: 1.4;
+        margin-bottom: 15px;
+        max-width: 800px;
+        opacity: 0;
+        transition: opacity 3s ease-in-out;
+      }
+      
+      .hero-carousel .hero-quote.active {
+        opacity: 1;
+      }
+      
+      .hero-carousel .hero-author {
+        color: rgba(255, 255, 255, 0.85);
+        text-shadow: none;
+        font-size: 1.2rem;
+        font-style: italic;
+        font-weight: 300;
+        margin-bottom: 30px;
+        max-width: 800px;
+        opacity: 0;
+        transition: opacity 3s ease-in-out;
+      }
+      
+      .hero-carousel .hero-author.active {
+        opacity: 1;
+      }
+      
+      .hero-carousel .btn {
+        opacity: 1;
+      }
+
+      @media (max-width: 768px) {
+        .hero-content {
+          padding: 40px 15px;
+        }
+        .hero-carousel .hero-quote {
+          font-size: 1.8rem;
+        }
+        .hero-carousel .hero-author {
+          font-size: 1rem;
+        }
+      }
+    </style>
+
+    <script>
+      // Carousel with Smoother Crossfade Quotes
+      document.addEventListener('DOMContentLoaded', function() {
+        const slides = document.querySelectorAll('.carousel-slide');
+        const quoteElement = document.querySelector('.hero-quote');
+        const authorElement = document.querySelector('.hero-author');
+        
+        const quotes = [
+          {
+            text: "Art enables us to find ourselves and lose ourselves at the same time.",
+            author: "— Thomas Merton"
+          },
+          {
+            text: "The privilege of a lifetime is to become who you truly are.",
+            author: "— Carl Jung"
+          },
+          {
+            text: "Elegance is refusal.",
+            author: "— Diana Vreeland"
+          },
+          {
+            text: "I am not what happened to me, I am what I choose to become.",
+            author: "— Carl Jung"
+          },
+          {
+            text: "The purpose of art is washing the dust of daily life off our souls.",
+            author: "— Pablo Picasso"
+          }
+        ];
+        
+        let currentSlide = 0;
+        
+        function updateQuote() {
+          // Smooth fade out
+          quoteElement.style.transition = 'opacity 1.5s ease-in-out';
+          authorElement.style.transition = 'opacity 1.5s ease-in-out';
+          quoteElement.classList.remove('active');
+          authorElement.classList.remove('active');
+          
+          setTimeout(() => {
+            // Update text while invisible
+            quoteElement.textContent = quotes[currentSlide].text;
+            authorElement.textContent = quotes[currentSlide].author;
+            
+            // Smooth fade in
+            setTimeout(() => {
+              quoteElement.classList.add('active');
+              authorElement.classList.add('active');
+            }, 100);
+          }, 1500);
+        }
+        
+        function rotateCarousel() {
+          slides[currentSlide].classList.remove('active');
+          currentSlide = (currentSlide + 1) % slides.length;
+          slides[currentSlide].classList.add('active');
+          updateQuote();
+        }
+        
+        // Initialize first quote
+        quoteElement.textContent = quotes[0].text;
+        authorElement.textContent = quotes[0].author;
+        setTimeout(() => {
+          quoteElement.classList.add('active');
+          authorElement.classList.add('active');
+        }, 100);
+        
+        // Rotate every 6 seconds
+        setInterval(rotateCarousel, 6000);
+      });
+    </script>
 
     <!-- Featured Artwork Section -->
     <section class="featured-artwork">
@@ -476,15 +660,10 @@
       if (!val) return true;
       const v = val.trim().toLowerCase();
       if (v === 'transparent') return true;
-      const m = v.match(/^rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*([0-9.]+))?\)$/);
+      const m = v.match(/^rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*([0-9.]+))?\)$/);  });</script>
       if (m) {
         const a = m[4] !== undefined ? parseFloat(m[4]) : 1;
-        return a === 0;
-      }
-      return false;
-    };
-
-    const getSolidBg = (el) => {
+        return a === 0;      }      return false;    };    const getSolidBg = (el) => {
       let cur = el;
       while (cur && cur !== document.documentElement) {
         const bg = getComputedStyle(cur).backgroundColor;
@@ -509,6 +688,10 @@
       return c <= 0.03928 ? c / 12.92 : Math.pow((c + 0.055) / 1.055, 2.4);
     };
     const luminance = 0.2126 * rel(r) + 0.7152 * rel(g) + 0.0722 * rel(b);
+    const textColor = luminance > 0.5 ? '#000000' : '#ffffff';
+
+    btn.style.backgroundColor = bg;
+    btn.style.borderColor = bg;
     const textColor = luminance > 0.5 ? '#000000' : '#ffffff';
 
     btn.style.backgroundColor = bg;

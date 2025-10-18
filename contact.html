@@ -83,6 +83,70 @@
       }
     });
   </script>
+  <style>
+  .contact-section {
+    max-width: 480px;
+    margin: 48px auto 64px auto;
+    padding: 32px 28px 28px 28px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    border: 1px solid #e0e0e0;
+  }
+  .contact-section h2 {
+    text-align: center;
+    margin-bottom: 28px;
+    font-size: 2.1rem;
+    color: #222;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+  }
+  .contact-form label {
+    display: block;
+    margin-bottom: 7px;
+    font-weight: 500;
+    color: #333;
+    font-size: 1.08rem;
+  }
+  .contact-form input,
+  .contact-form textarea {
+    width: 100%;
+    padding: 11px 14px;
+    margin-bottom: 20px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    font-size: 1.05rem;
+    background: #fafbfc;
+    transition: border-color 0.2s;
+    box-sizing: border-box;
+  }
+  .contact-form input:focus,
+  .contact-form textarea:focus {
+    border-color: #333;
+    outline: none;
+    background: #fff;
+  }
+  .contact-form textarea {
+    min-height: 120px;
+    resize: vertical;
+  }
+  .contact-form button {
+    width: 100%;
+    padding: 13px;
+    background: linear-gradient(90deg, #333 0%, #444 100%);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 1.15rem;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    transition: background 0.2s;
+  }
+  .contact-form button:hover {
+    background: linear-gradient(90deg, #222 0%, #333 100%);
+  }
+  </style>
 </head>
 <body>
   <header>
@@ -109,29 +173,18 @@
 
   <main>    
     <div class="contact-container">
-      <form id="contact-form" class="animate-fade-in" action="https://formspree.io/f/your-form-id" method="POST">
-        <div class="form-group">
-          <label data-translate="contact-name">Name</label>
-          <input type="text" name="from_name" autocomplete="name" required>
-        </div>
-        
-        <div class="form-group">
-          <label data-translate="contact-email">Email</label>
-          <input type="email" name="reply_to" autocomplete="email" required>
-        </div>
-        
-        <div class="form-group">
-          <label data-translate="contact-message">Message</label>
-          <textarea name="message" rows="6" autocomplete="on" required placeholder="Tell me about your project or inquiry..."></textarea>
-        </div>
-        
-        <button type="submit" class="submit-btn" data-translate="contact-send">
-          <span class="btn-text">Send Message</span>
-          <span class="btn-loading" style="display: none;">Sending...</span>
-        </button>
-        
-        <div id="form-status" class="form-status"></div>
-      </form>
+      <section class="contact-section">
+  <h2>Contact Me</h2>
+  <form action="mailto:t.kornev01@gmail.com" method="POST" enctype="text/plain" class="contact-form">
+    <label for="name">Name</label>
+    <input type="text" id="name" name="name" autocomplete="name" required>
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email" autocomplete="email" required>
+    <label for="message">Message</label>
+    <textarea id="message" name="message" autocomplete="on" required></textarea>
+    <button type="submit">Send</button>
+  </form>
+</section>
     </div>
   </main>
 

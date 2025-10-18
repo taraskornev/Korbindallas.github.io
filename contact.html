@@ -87,31 +87,20 @@
   body {
     background: #f7f8fa;
   }
-  .contact-section {
-    max-width: 400px;
-    margin: 48px auto 64px auto;
-    padding: 24px 18px 18px 18px;
-    background: #fff;
-    border-radius: 10px;
-    box-shadow: 0 2px 12px rgba(60,80,120,0.07);
-    border: 1px solid #ececec;
-  }
-  .contact-section h2 {
-    text-align: center;
-    margin-bottom: 16px;
-    font-size: 1.5rem;
-    color: #222;
-    font-weight: 700;
-    letter-spacing: 0.01em;
-  }
   .google-form-iframe {
     width: 100%;
     min-height: 420px;
     border: none;
-    border-radius: 8px;
-    background: #fafbfc;
-    box-shadow: 0 1px 6px rgba(60,80,120,0.04);
-    overflow: hidden;
+    background: transparent;
+    display: block;
+    margin: 0 auto;
+    max-width: 600px;
+  }
+  @media (max-width: 700px) {
+    .google-form-iframe {
+      max-width: 100vw;
+      min-height: 320px;
+    }
   }
   </style>
 </head>
@@ -140,18 +129,17 @@
 
   <main>    
     <div class="contact-container">
-      <section class="contact-section">
-  <h2>Contact Me</h2>
-  <iframe class="google-form-iframe"
-    src="https://docs.google.com/forms/d/e/1FAIpQLSfFqWQ6m1oGhBgoUGJE0IZ4-4g7oh4J2QB1psB3PZ6VVALCrg/viewform?embedded=true"
-    frameborder="0"
-    marginheight="0"
-    marginwidth="0"
-    allowtransparency="true"
-    style="background:transparent;">
-    Loading…
-  </iframe>
-</section>
+      <iframe
+        class="google-form-iframe"
+        src="https://docs.google.com/forms/d/e/1FAIpQLSfFqWQ6m1oGhBgoUGJE0IZ4-4g7oh4J2QB1psB3PZ6VVALCrg/viewform?embedded=true"
+        frameborder="0"
+        marginheight="0"
+        marginwidth="0"
+        scrolling="no"
+        height="700"
+        style="width:100%;max-width:600px;display:block;margin:0 auto;background:transparent;">
+        Loading…
+      </iframe>
     </div>
   </main>
 

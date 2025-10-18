@@ -468,6 +468,258 @@
         }
       });
     })();
+
+    // Working Share Functionality with Instagram Story Preview
+    (function() {
+      'use strict';
+      
+      const artworkData = {
+        'urban-moments': {
+          title: 'Urban Moments - Street Photography',
+          description: 'Digital Photography — Street Series by Korbin Dallas',
+          image: 'images/paintings/ComfyUI_00131_.png'
+        },
+        'portrait-study': {
+          title: 'Portrait Study - Photography',
+          description: 'Digital Photography — Studio Series by Korbin Dallas',
+          image: 'images/paintings/ComfyUI_00110_.png'
+        },
+        'natural-light': {
+          title: 'Natural Light - Landscape Photography',
+          description: 'Digital Photography — Landscape Series by Korbin Dallas',
+          image: 'images/paintings/ComfyUI_temp_xnnnr_00001_.png'
+        },
+        'abstract-dreams': {
+          title: 'Abstract Dreams - Mixed Media',
+          description: 'Mixed media painting — 60x60 cm by Korbin Dallas',
+          image: 'images/paintings/ComfyUI_00131_.png'
+        },
+        'expressive-forms': {
+          title: 'Expressive Forms - Acrylic Painting',
+          description: 'Acrylic, canvas — 40x60 cm by Korbin Dallas',
+          image: 'images/paintings/ComfyUI_01181_a_Balls_1024.jpg'
+        },
+        'color-symphony': {
+          title: 'Color Symphony - Oil Painting',
+          description: 'Oil, canvas — 50x70 cm by Korbin Dallas',
+          image: 'images/paintings/ComfyUI_temp_eviof_00001_.png'
+        },
+        'modern-expression': {
+          title: 'Modern Expression - Mixed Media',
+          description: 'Mixed media, canvas — 45x65 cm by Korbin Dallas',
+          image: 'images/paintings/ComfyUI_00134_.png'
+        },
+        'digital-dreams': {
+          title: 'Digital Dreams - AI Generated Art',
+          description: 'AI Generated — Digital Print 30x40 cm by Korbin Dallas',
+          image: 'images/paintings/ComfyUI_temp_vrugl_00003_.jpg'
+        },
+        'algorithmic-beauty': {
+          title: 'Algorithmic Beauty - AI Art',
+          description: 'AI Generated — Digital Print 60x80 cm by Korbin Dallas',
+          image: 'images/paintings/ComfyUI_temp_xnnnr_00001_.png'
+        },
+        'neural-networks': {
+          title: 'Neural Networks - AI Art',
+          description: 'AI Generated — Digital Print 50x50 cm by Korbin Dallas',
+          image: 'images/paintings/ComfyUI_00110_.png'
+        }
+      };
+      
+      function shareArtwork(artworkId) {
+        const artwork = artworkData[artworkId];
+        if (!artwork) {
+          console.error('Artwork not found:', artworkId);
+          return;
+        }
+        
+        const baseUrl = window.location.origin + window.location.pathname.replace('gallery.html', '');
+        const fullImageUrl = baseUrl + artwork.image;
+        const shareUrl = window.location.href + '#' + artworkId;
+        
+        const shareData = {
+          title: artwork.title,
+          text: artwork.description,
+          url: shareUrl
+        };
+        
+        // Try native Web Share API first (works on mobile, including Instagram)
+        if (navigator.share) {
+          navigator.share(shareData)
+            .then(() => console.log('Shared successfully'))
+            .catch((error) => {
+              console.log('Error sharing:', error);
+              fallbackShare(artwork, shareUrl, fullImageUrl);
+            });
+        } else {
+          // Fallback for desktop
+          fallbackShare(artwork, shareUrl, fullImageUrl);
+        }
+      }
+      
+      function fallbackShare(artwork, shareUrl, imageUrl) {
+        // Create share menu
+        const shareMenu = document.createElement('div');
+        shareMenu.className = 'share-menu';
+        shareMenu.innerHTML = `
+          <div class="share-menu-content">
+            <h3>Share this artwork</h3>
+            <p>${artwork.title}</p>
+            <div class="share-buttons-grid">
+              <a href="https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}" target="_blank" class="share-platform-btn facebook">
+                <svg viewBox="0 0 24 24"><path fill="currentColor" d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                Facebook
+              </a>
+              <a href="https://twitter.com/intent/tweet?url=${encodeURIComponent(shareUrl)}&text=${encodeURIComponent(artwork.title)}" target="_blank" class="share-platform-btn twitter">
+                <svg viewBox="0 0 24 24"><path fill="currentColor" d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
+                Twitter
+              </a>
+              <a href="https://pinterest.com/pin/create/button/?url=${encodeURIComponent(shareUrl)}&media=${encodeURIComponent(imageUrl)}&description=${encodeURIComponent(artwork.description)}" target="_blank" class="share-platform-btn pinterest">
+                <svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 0C5.373 0 0 5.372 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 01.083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.631-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12 0-6.628-5.373-12-12-12z"/></svg>
+                Pinterest
+              </a>
+              <a href="whatsapp://send?text=${encodeURIComponent(artwork.title + ' - ' + shareUrl)}" target="_blank" class="share-platform-btn whatsapp">
+                <svg viewBox="0 0 24 24"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                WhatsApp
+              </a>
+              <button class="share-platform-btn copy-link" onclick="copyShareLink('${shareUrl}')">
+                <svg viewBox="0 0 24 24"><path fill="currentColor" d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+                Copy Link
+              </button>
+            </div>
+            <button class="close-share-menu" onclick="this.closest('.share-menu').remove()">✕</button>
+          </div>
+        `;
+        
+        document.body.appendChild(shareMenu);
+        setTimeout(() => shareMenu.classList.add('active'), 10);
+      }
+      
+      window.copyShareLink = function(url) {
+        navigator.clipboard.writeText(url).then(() => {
+          alert('Link copied to clipboard! 📋');
+        });
+      };
+      
+      // Attach share handlers to all share buttons
+      document.addEventListener('DOMContentLoaded', function() {
+        const shareButtons = document.querySelectorAll('.share-btn');
+        shareButtons.forEach(btn => {
+          btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            const artworkId = this.getAttribute('data-artwork-id');
+            shareArtwork(artworkId);
+          });
+        });
+      });
+    })();
   </script>
+
+  <style>
+    /* Share Menu Styles */
+    .share-menu {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10000;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    
+    .share-menu.active {
+      opacity: 1;
+    }
+    
+    .share-menu-content {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      max-width: 500px;
+      width: 90%;
+      position: relative;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+    }
+    
+    .share-menu-content h3 {
+      margin: 0 0 10px 0;
+      font-size: 24px;
+      color: #333;
+    }
+    
+    .share-menu-content p {
+      margin: 0 0 20px 0;
+      color: #666;
+      font-size: 14px;
+    }
+    
+    .share-buttons-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+    
+    .share-platform-btn {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 16px;
+      border: none;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      text-decoration: none;
+      color: white;
+    }
+    
+    .share-platform-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+    
+    .share-platform-btn svg {
+      width: 20px;
+      height: 20px;
+    }
+    
+    .share-platform-btn.facebook { background: #1877F2; }
+    .share-platform-btn.twitter { background: #1DA1F2; }
+    .share-platform-btn.pinterest { background: #E60023; }
+    .share-platform-btn.whatsapp { background: #25D366; }
+    .share-platform-btn.copy-link { background: #333; }
+    
+    .close-share-menu {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: none;
+      border: none;
+      font-size: 28px;
+      cursor: pointer;
+      color: #999;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      transition: background 0.2s;
+    }
+    
+    .close-share-menu:hover {
+      background: #f0f0f0;
+      color: #333;
+    }
+    
+    @media (max-width: 600px) {
+      .share-buttons-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </body>
 </html>

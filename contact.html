@@ -84,67 +84,34 @@
     });
   </script>
   <style>
+  body {
+    background: #f7f8fa;
+  }
   .contact-section {
-    max-width: 480px;
+    max-width: 400px;
     margin: 48px auto 64px auto;
-    padding: 32px 28px 28px 28px;
+    padding: 24px 18px 18px 18px;
     background: #fff;
-    border-radius: 12px;
-    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
-    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    box-shadow: 0 2px 12px rgba(60,80,120,0.07);
+    border: 1px solid #ececec;
   }
   .contact-section h2 {
     text-align: center;
-    margin-bottom: 28px;
-    font-size: 2.1rem;
+    margin-bottom: 16px;
+    font-size: 1.5rem;
     color: #222;
     font-weight: 700;
-    letter-spacing: 0.02em;
+    letter-spacing: 0.01em;
   }
-  .contact-form label {
-    display: block;
-    margin-bottom: 7px;
-    font-weight: 500;
-    color: #333;
-    font-size: 1.08rem;
-  }
-  .contact-form input,
-  .contact-form textarea {
+  .google-form-iframe {
     width: 100%;
-    padding: 11px 14px;
-    margin-bottom: 20px;
-    border: 1px solid #d1d5db;
-    border-radius: 6px;
-    font-size: 1.05rem;
-    background: #fafbfc;
-    transition: border-color 0.2s;
-    box-sizing: border-box;
-  }
-  .contact-form input:focus,
-  .contact-form textarea:focus {
-    border-color: #333;
-    outline: none;
-    background: #fff;
-  }
-  .contact-form textarea {
-    min-height: 120px;
-    resize: vertical;
-  }
-  .contact-form button {
-    width: 100%;
-    padding: 13px;
-    background: linear-gradient(90deg, #333 0%, #444 100%);
-    color: #fff;
+    min-height: 420px;
     border: none;
-    border-radius: 6px;
-    font-size: 1.15rem;
-    font-weight: 700;
-    cursor: pointer;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-    transition: background 0.2s;
-  }
-  .contact-form button:hover {
-    background: linear-gradient(90deg, #222 0%, #333 100%);
+    border-radius: 8px;
+    background: #fafbfc;
+    box-shadow: 0 1px 6px rgba(60,80,120,0.04);
+    overflow: hidden;
   }
   </style>
 </head>
@@ -175,15 +142,15 @@
     <div class="contact-container">
       <section class="contact-section">
   <h2>Contact Me</h2>
-  <form action="mailto:t.kornev01@gmail.com" method="POST" enctype="text/plain" class="contact-form">
-    <label for="name">Name</label>
-    <input type="text" id="name" name="name" autocomplete="name" required>
-    <label for="email">Email</label>
-    <input type="email" id="email" name="email" autocomplete="email" required>
-    <label for="message">Message</label>
-    <textarea id="message" name="message" autocomplete="on" required></textarea>
-    <button type="submit">Send</button>
-  </form>
+  <iframe class="google-form-iframe"
+    src="https://docs.google.com/forms/d/e/1FAIpQLSfFqWQ6m1oGhBgoUGJE0IZ4-4g7oh4J2QB1psB3PZ6VVALCrg/viewform?embedded=true"
+    frameborder="0"
+    marginheight="0"
+    marginwidth="0"
+    allowtransparency="true"
+    style="background:transparent;">
+    Loading…
+  </iframe>
 </section>
     </div>
   </main>

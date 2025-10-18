@@ -38,7 +38,6 @@
       "occupationLocation": {
         "@type": "Place",
         "name": "Artist Studio"
-      }
     },
     "offers": {
       "@type": "Offer",
@@ -100,7 +99,6 @@
           <span class="lang-text">DE</span>
         </button>
       </div>
-      <button class="menu-toggle" aria-label="Меню">&#9776;</button>
       <nav class="nav-links">
         <a href="index.html" data-translate="nav-home">Home</a>
         <a href="gallery.html" data-translate="nav-gallery">Gallery</a>
@@ -108,6 +106,9 @@
         <a href="contact.html" data-translate="nav-contact">Contact</a>
         <a href="https://ko-fi.com/korbindallas" class="donate-btn" data-translate="nav-donate" target="_blank" style="background-color: #ff0000; border-color: #ff0000;">☕ Buy Mom a Coffee</a>
       </nav>
+      <button class="menu-toggle" aria-label="Open navigation">
+        <span style="font-size:2rem;">&#9776;</span>
+      </button>
     </div>
   </header>
 
@@ -153,11 +154,10 @@
         position: relative;
         overflow: hidden;
         margin-bottom: 40px; /* reduce space below hero section */
-      }
       .carousel-container {
   position: relative;
   width: 100%;
-  height: 480px;
+  height: 580px;
   min-height: 320px;
   overflow: hidden;
   z-index: 5;
@@ -168,7 +168,7 @@
         top: 0;
         left: 0;
         width: 100%;
-        height: 480px;
+  height: 580px;
         background: rgba(0,0,0,0.5);
   z-index: 2;
         pointer-events: none;
@@ -178,7 +178,7 @@
         top: 0;
         left: 0;
         width: 100%;
-        height: 480px;
+  height: 580px;
         background-size: cover;
         background-position: 50% 50%;
         background-repeat: no-repeat;
@@ -202,7 +202,7 @@
   height: 360px;
   z-index: 20; /* ensures content is above dim block */
   text-align: left;
-  padding: 32px 20px 16px 20px; /* reduced top and bottom padding for desktop */
+  padding: 1rem 2rem 0 2rem !important;
   display: flex;
   flex-direction: column;
   justify-content: space-between; /* separate top and bottom */
@@ -230,24 +230,6 @@
         margin-left: 0;
         align-self: flex-start;
       }
-      @media (max-width: 900px) {
-  nav {
-    display: none;
-    position: fixed;
-    left: 0;
-    top: 0;
-    height: 100vh;
-    width: 100vw;
-    background: #fff;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 2rem;
-    padding-top: 5rem;
-    z-index: 1000;
-    overflow-y: auto;
-    box-sizing: border-box;
-  }
         #hero-author {
           line-height: 0.8 !important;
         }
@@ -476,8 +458,13 @@
         
         // Initialize first quote
         const quotesInit = currentLang === 'de' ? quotesDE : quotesEN;
-  quoteElement.textContent = currentLang === 'en' ? quotesEN[0].text : quotesDE[0].text;
-  authorElement.textContent = currentLang === 'de' ? quotesDE[0].author : quotesEN[0].author;
+  if (currentLang === 'en') {
+    quoteElement.textContent = quotesEN[0].text;
+    authorElement.textContent = quotesEN[0].author;
+  } else {
+    quoteElement.textContent = quotesDE[0].text;
+    authorElement.textContent = quotesDE[0].author;
+  }
         quoteAuthorFade.style.opacity = 1;
         setTimeout(() => {
           quoteElement.classList.add('active');
@@ -643,25 +630,6 @@
       </div>
     </section>
 
-    <!-- Call-to-Action Section -->
-    <section class="cta-section">
-      <div class="cta-content">
-        <h2>Ready to Own a Piece?</h2>
-        <p>Commission custom artwork, stay updated with new releases, or connect with me for collaborations.</p>
-        <div class="cta-buttons">
-          <a href="contact.html" class="cta-btn primary">Commission Artwork</a>
-          <a href="contact.html" class="cta-btn secondary">Get in Touch</a>
-        </div>
-        <div class="newsletter">
-          <h3>Stay Updated</h3>
-          <p>Be the first to see new artwork and exclusive releases.</p>
-          <form class="newsletter-form">
-            <input type="email" placeholder="Enter your email" required>
-            <button type="submit">Subscribe</button>
-          </form>
-        </div>
-      </div>
-    </section>
 
   </main>
 

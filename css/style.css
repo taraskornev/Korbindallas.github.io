@@ -1,3 +1,9 @@
+/* Center and constrain hero content on desktop */
+.hero-content {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
 /* Navbar styles - C/O Berlin inspired */
 header {
   background: #ffffff;
@@ -17,6 +23,8 @@ header {
   min-height: 70px;
   position: relative;
   margin: 0 auto;
+  max-width: 1200px;
+  width: 100%;
 }
 .logo-link {
   display: flex;
@@ -45,6 +53,56 @@ header {
   gap: 3rem;
   align-items: center;
 }
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+  .nav-links.open {
+    display: flex !important;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #ffffff;
+    border-top: 1px solid #e0e0e0;
+    padding: 1.5rem;
+    z-index: 1000;
+    gap: 1rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto;
+    width: 100vw;
+    max-width: 100vw;
+  }
+}
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+  .nav-links.open {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #ffffff;
+    border-top: 1px solid #e0e0e0;
+    padding: 1.5rem;
+    z-index: 1000;
+    gap: 1rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto;
+    width: 100vw;
+    max-width: 100vw;
+  }
+}
 /* Navigation links - clean professional style */
 .nav-links a {
   font-size: 0.95rem;
@@ -57,7 +115,6 @@ header {
   border-bottom: 2px solid transparent;
   transition: border-color 0.3s ease;
   white-space: nowrap;
-}
 }
 .nav-links a:hover, .nav-links a.active {
   border-bottom: 2px solid #000000;
@@ -90,6 +147,7 @@ header {
     .menu-toggle {
       display: none !important;
     }
+    }
   }
   border: 1px solid #000000 !important;
   border-bottom: 2px solid transparent !important;
@@ -101,14 +159,49 @@ header {
   border: 1px solid #000000 !important;
 }
 .menu-toggle {
-  display: none;
+  display: none !important;
 }
 @media (max-width: 768px) {
   .navbar {
-    padding: 0.7rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 0.7rem;
+    padding-bottom: 0.7rem;
     min-height: 42px;
-    max-width: none;
+    max-width: 100vw;
+    width: 100vw;
+    box-sizing: border-box;
     margin: 0;
+    position: relative;
+  }
+  .logo-link {
+    margin-right: auto;
+  }
+  .menu-toggle {
+    margin-left: auto;
+    margin-right: 0;
+    order: 2;
+    display: block !important;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: #000000 !important;
+    cursor: pointer;
+    padding: 0.5rem;
+    width: auto;
+    margin-right: 0;
+    margin-left: 0;
+    position: relative;
+    z-index: 2001;
+  }
+  .nav-links.open {
+    z-index: 2000;
+  }
+  .nav-links {
+    order: 1;
   }
   .site-logo {
     height: 40px;
@@ -117,39 +210,67 @@ header {
     gap: 2rem;
   }
   .menu-toggle {
-     display: block;
-     margin-left: auto;
-     background: none;
-     border: none;
-     font-size: 1.5rem;
-     color: #000000 !important;
-     cursor: pointer;
-     padding: 0.5rem;
-     width: auto;
+    display: block !important;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: #000000 !important;
+    cursor: pointer;
+    padding: 0.5rem;
+    width: auto;
+    margin-right: 0;
+    margin-left: 0;
   }
   .nav-links {
+    display: none;
+  }
+  .nav-links.open {
+    display: flex !important;
+    flex-direction: column;
     position: absolute;
     top: 100%;
     left: 0;
     right: 0;
     background: #ffffff;
-    flex-direction: column;
     border-top: 1px solid #e0e0e0;
     padding: 1.5rem;
     z-index: 1000;
     gap: 1rem;
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(-10px);
-    transition: all 0.3s ease;
-    width: auto;
-    max-height: fit-content;
-  }
-  .nav-links.open {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
+    pointer-events: auto;
+    width: 100vw;
+    max-width: 100vw;
+  }
+  .nav-links {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: #ffffff;
+  flex-direction: column;
+  border-top: 1px solid #e0e0e0;
+  padding: 1.5rem;
+  z-index: 1000;
+  gap: 1rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+  width: 100vw;
+  max-width: 100vw;
+  left: 0;
+  right: 0;
+  pointer-events: none;
+  }
+  .nav-links.open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  pointer-events: auto;
   }
   .hero h1 {
     font-size: 2.5rem;
@@ -157,6 +278,9 @@ header {
   .hero {
     padding: 4rem 1rem 6rem 1rem;
     text-align: center;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 .card h2 {
@@ -377,24 +501,6 @@ nav {
   margin: 0;
       max-width: 100vw;
       overflow-x: hidden;
-}
-
-
-
-@media (max-width: 700px) {
-  nav {
-    display: none;
-    position: fixed;
-    left: 0;
-    top: 0;
-    height: 100vh;
-    width: 100vw;
-    background: #fff;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 2rem;
-    padding-top: 5rem;
     z-index: 1000;
   }
   nav.menu-open {
@@ -424,9 +530,6 @@ nav {
     z-index: 1002;
   }
 /* removed extra closing bracket */
-}
-
-
 
 .hero {
   text-align: left;
@@ -1074,19 +1177,19 @@ footer p {
 }
 
 .cta-content {
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.cta-content h2 {
-  font-size: 2.5rem;
-  font-weight: 300;
-  margin-bottom: 1rem;
-}
-
-.cta-content > p {
-  font-size: 1.2rem;
-  margin-bottom: 3rem;
+  position: relative;
+  height: 360px;
+  z-index: 20; /* ensures content is above dim block */
+  text-align: left;
+  padding: 32px 20px 16px 20px; /* reduced top and bottom padding for desktop */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* separate top and bottom */
+  align-items: flex-start;
+  pointer-events: none;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
   opacity: 0.9;
 }
 

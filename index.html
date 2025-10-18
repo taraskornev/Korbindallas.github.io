@@ -663,10 +663,14 @@
       if (!val) return true;
       const v = val.trim().toLowerCase();
       if (v === 'transparent') return true;
-      const m = v.match(/^rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*([0-9.]+))?\)$/);  });</script>
+      const m = v.match(/^rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*([0-9.]+))?\)$/);
       if (m) {
         const a = m[4] !== undefined ? parseFloat(m[4]) : 1;
-        return a === 0;      }      return false;    };    const getSolidBg = (el) => {
+        return a === 0;
+      }
+      return false;
+    };
+    const getSolidBg = (el) => {
       let cur = el;
       while (cur && cur !== document.documentElement) {
         const bg = getComputedStyle(cur).backgroundColor;
@@ -691,10 +695,6 @@
       return c <= 0.03928 ? c / 12.92 : Math.pow((c + 0.055) / 1.055, 2.4);
     };
     const luminance = 0.2126 * rel(r) + 0.7152 * rel(g) + 0.0722 * rel(b);
-    const textColor = luminance > 0.5 ? '#000000' : '#ffffff';
-
-    btn.style.backgroundColor = bg;
-    btn.style.borderColor = bg;
     const textColor = luminance > 0.5 ? '#000000' : '#ffffff';
 
     btn.style.backgroundColor = bg;

@@ -127,21 +127,22 @@
   </header>
 
   <main>
-    <section class="hero hero-carousel">
-          <div class="carousel-container">
-            <div class="carousel-slide active" data-quote="1"></div>
-            <div class="carousel-slide" data-quote="2"></div>
-            <div class="carousel-slide" data-quote="3"></div>
-            <div class="hero-content">
-              <h1 class="hero-quote"></h1>
-              <p class="hero-author"></p>
-              <a href="gallery.html" class="btn" data-translate="hero-btn">View Gallery</a>
-            </div>
-          </div>
+    <section class="hero">
+      <div class="carousel-container">
+        <div class="carousel-slide active" data-quote="1"></div>
+        <div class="carousel-slide" data-quote="2"></div>
+        <div class="carousel-slide" data-quote="3"></div>
+        <div class="hero-content">
+          <h1 class="hero-quote"></h1>
+          <p class="hero-author"></p>
+          <a href="gallery.html" class="btn" data-translate="hero-btn">View Gallery</a>
+          <!-- signature or other info here -->
+        </div>
+      </div>
     </section>
 
     <style>
-      .hero-carousel {
+      .hero {
         position: relative;
         overflow: hidden;
       }
@@ -151,6 +152,18 @@
         height: 480px;
         min-height: 320px;
         overflow: hidden;
+        z-index: 1;
+      }
+      .carousel-container::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 480px;
+        background: rgba(0,0,0,0.5);
+        z-index: 2;
+        pointer-events: none;
       }
       .carousel-slide {
         position: absolute;
@@ -163,7 +176,9 @@
         background-repeat: no-repeat;
         opacity: 0;
         transition: opacity 2s ease-in-out;
-        /* Add background-image for each slide */
+        margin: 0;
+        padding: 0;
+        z-index: 1;
       }
       .carousel-slide:nth-child(1) { background-image: url('images/paintings/ComfyUI_00131_.png'); }
 .carousel-slide:nth-child(2) { background-image: url('images/paintings/ComfyUI_00110_.png'); }
@@ -171,18 +186,15 @@
       .carousel-slide.active {
         opacity: 1;
       }
-      .hero-carousel::before {
-        display: none;
-      }
       .hero-content {
         position: absolute;
         top: 0;
         left: 0;
         right: 0;
         height: 480px;
-        z-index: 2;
+        z-index: 3; /* ensures content is above dim block */
         text-align: left;
-        padding: 60px 20px;
+        padding: 60px 20px; /* desktop */
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
@@ -211,13 +223,17 @@
         align-self: flex-start;
       }
       @media (max-width: 900px) {
-        .carousel-container,
-        .carousel-slide,
-        .hero-carousel::before,
-        .hero-content {
+        .carousel-container {
+          height: 320px;
+        }
+        .carousel-container::before {
+          height: 320px;
+        }
+        .carousel-slide {
           height: 320px;
         }
         .hero-content {
+          height: 320px;
           padding: 40px 10px;
         }
         .hero .btn {
@@ -231,13 +247,17 @@
         }
       }
       @media (max-width: 600px) {
-        .carousel-container,
-        .carousel-slide,
-        .hero-carousel::before,
-        .hero-content {
+        .carousel-container {
+          height: 200px;
+        }
+        .carousel-container::before {
+          height: 200px;
+        }
+        .carousel-slide {
           height: 200px;
         }
         .hero-content {
+          height: 200px;
           padding: 24px 4vw;
         }
         .hero .btn {
@@ -250,9 +270,8 @@
       }
 
       /* Hero Quote Styling */
-      .hero-carousel .hero-quote {
-        color: #ffffff;
-        text-shadow: none;
+      .hero-content .hero-quote {
+        color: #fff !important;
         font-size: 2.5rem;
         font-weight: 200;
         line-height: 1.4;
@@ -261,9 +280,18 @@
         opacity: 0;
         transition: opacity 3s ease-in-out;
       }
-      
-      .hero-carousel .hero-quote.active {
+      .hero-content .hero-quote.active {
         opacity: 1;
+      }
+      @media (max-width: 900px) {
+        .hero-content .hero-quote {
+          font-size: 2rem;
+        }
+      }
+      @media (max-width: 600px) {
+        .hero-content .hero-quote {
+          font-size: 1.5rem;
+        }
       }
       
       .hero-carousel .hero-author {

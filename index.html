@@ -3,21 +3,6 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
-  <!-- SEO Meta Tags -->
-  <title data-translate="page-title">Мой арт--магазин</title>
-  <meta name="description" content="Professional art gallery featuring AI-generated art, photography, and traditional paintings. Explore unique artworks and commission custom pieces.">
-  <meta name="keywords" content="art gallery, AI art, photography, paintings, custom art, commissions">
-  <meta name="author" content="Your Artist Name">
-  
-  <!-- Open Graph Meta Tags -->
-  <meta property="og:title" content="My Art Shop - Professional Art Gallery">
-  <meta property="og:description" content="Explore my world of colors and emotions through AI art, photography, and traditional paintings.">
-  <meta property="og:image" content="images/logo/logo_1-01.png">
-  <meta property="og:url" content="https://korbindallas.de">
-  <meta property="og:type" content="website">
-  
-  <!-- Twitter Card Meta Tags -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="My Art Shop - Professional Art Gallery">
   <meta name="twitter:description" content="Explore my world of colors and emotions through AI art, photography, and traditional paintings.">
@@ -133,26 +118,49 @@
         <div class="carousel-slide" data-quote="2"></div>
         <div class="carousel-slide" data-quote="3"></div>
         <div class="hero-content">
-          <h1 class="hero-quote"></h1>
-          <p class="hero-author"></p>
-          <a href="gallery.html" class="btn" data-translate="hero-btn">View Gallery</a>
-          <!-- signature or other info here -->
+          <div class="hero-quote-signature-block" style="min-height: 80px; display: flex; flex-direction: column; justify-content: center; flex-grow: 0;">
+            <div class="hero-quote-author-fade" style="min-height: 60px; display: flex; flex-direction: column; justify-content: center; transition: opacity 1.5s ease-in-out; opacity: 1; flex-grow: 0;">
+              <div class="hero-quote-block" style="margin-bottom: 0;">
+                <h1 class="hero-quote" style="line-height:1.2;"></h1>
+              </div>
+              <div class="hero-author-block" style="margin-top: 0;">
+                    <p class="hero-author" style="font-weight:300; color:rgba(255,255,255,0.8); position:relative; z-index:100; line-height:1;" id="hero-author"></p>
+              </div>
+            </div>
+          </div>
+          <div class="hero-btn-block" style="margin-top: 24px; flex-grow: 0;">
+            <a href="gallery.html" class="btn" data-translate="hero-btn" style="margin-top: 0; border-radius: 0;">View Gallery</a>
+          </div>
         </div>
       </div>
     </section>
+
+    <script>
+    // Hamburger menu toggle for mobile navigation
+    document.addEventListener('DOMContentLoaded', function() {
+      const menuToggle = document.querySelector('.menu-toggle');
+      const navLinks = document.querySelector('.nav-links');
+      if (menuToggle && navLinks) {
+        menuToggle.addEventListener('click', function() {
+          navLinks.classList.toggle('open');
+        });
+      }
+    });
+    </script>
 
     <style>
       .hero {
         position: relative;
         overflow: hidden;
+        margin-bottom: 40px; /* reduce space below hero section */
       }
       .carousel-container {
-        position: relative;
-        width: 100%;
-        height: 480px;
-        min-height: 320px;
-        overflow: hidden;
-        z-index: 1;
+  position: relative;
+  width: 100%;
+  height: 480px;
+  min-height: 320px;
+  overflow: hidden;
+  z-index: 5;
       }
       .carousel-container::before {
         content: '';
@@ -162,7 +170,7 @@
         width: 100%;
         height: 480px;
         background: rgba(0,0,0,0.5);
-        z-index: 2;
+  z-index: 2;
         pointer-events: none;
       }
       .carousel-slide {
@@ -187,19 +195,19 @@
         opacity: 1;
       }
       .hero-content {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 480px;
-        z-index: 3; /* ensures content is above dim block */
-        text-align: left;
-        padding: 60px 20px; /* desktop */
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: flex-start;
-        pointer-events: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 360px;
+  z-index: 20; /* ensures content is above dim block */
+  text-align: left;
+  padding: 32px 20px 16px 20px; /* reduced top and bottom padding for desktop */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* separate top and bottom */
+  align-items: flex-start;
+  pointer-events: none;
       }
       .hero-content > * {
         pointer-events: auto;
@@ -223,6 +231,26 @@
         align-self: flex-start;
       }
       @media (max-width: 900px) {
+  nav {
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    width: 100vw;
+    background: #fff;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 2rem;
+    padding-top: 5rem;
+    z-index: 1000;
+    overflow-y: auto;
+    box-sizing: border-box;
+  }
+        #hero-author {
+          line-height: 0.8 !important;
+        }
         .carousel-container {
           height: 320px;
         }
@@ -233,20 +261,26 @@
           height: 320px;
         }
         .hero-content {
-          height: 320px;
-          padding: 40px 10px;
+          height: 260px;
+          padding: 10px 10px 0 10px;
         }
-        .hero .btn {
-          min-width: 120px;
-          max-width: 100%;
-          font-size: 1rem;
-          padding: 14px 18px;
-          width: auto;
-          border-radius: 0;
-          margin-top: 12px;
+          .hero .btn {
+            min-width: 120px;
+            max-width: 100%;
+            font-size: 1rem;
+            padding: 14px 18px;
+            width: auto;
+            border-radius: 0;
+            margin-top: 12px;
+          }
+        .hero {
+          margin-bottom: 24px;
         }
       }
       @media (max-width: 600px) {
+        #hero-author {
+          line-height: 0.6 !important;
+        }
         .carousel-container {
           height: 200px;
         }
@@ -259,13 +293,18 @@
         .hero-content {
           height: 200px;
           padding: 24px 4vw;
+          align-items: center;
+          text-align: center;
         }
-        .hero .btn {
-          font-size: 0.95rem;
-          padding: 12px 8px;
-          width: auto;
-          border-radius: 0;
-          margin-top: 8px;
+          .hero .btn {
+            font-size: 0.95rem;
+            padding: 12px 8px;
+            width: auto;
+            border-radius: 0;
+            margin-top: 8px;
+          }
+        .hero {
+          margin-bottom: 12px;
         }
       }
 
@@ -295,13 +334,12 @@
       }
       
       .hero-carousel .hero-author {
-        color: rgba(255, 255, 255, 0.85);
-        text-shadow: none;
+  color: #fff; /* pure white, no transparency */
         font-size: 1.2rem;
         font-style: italic;
-        font-weight: 300;
+  font-weight: 700;
         margin-bottom: 30px;
-        max-width: 800px;
+        max-width: 640px; /* less wide than quote */
         opacity: 0;
         transition: opacity 3s ease-in-out;
       }
@@ -360,10 +398,11 @@
       // Carousel with Smoother Crossfade Quotes
       document.addEventListener('DOMContentLoaded', function() {
         const slides = document.querySelectorAll('.carousel-slide');
+        const quoteAuthorFade = document.querySelector('.hero-quote-author-fade');
         const quoteElement = document.querySelector('.hero-quote');
-        const authorElement = document.querySelector('.hero-author');
-        
-        const quotes = [
+  const authorElement = document.querySelector('.hero-author');
+  // English quotes
+  const quotesEN = [
           {
             text: "Art enables us to find ourselves and lose ourselves at the same time.",
             author: "— Thomas Merton"
@@ -385,25 +424,45 @@
             author: "— Pablo Picasso"
           }
         ];
+        // German quotes
+        const quotesDE = [
+          {
+            text: "Kunst ermöglicht es uns, uns selbst zu finden und uns gleichzeitig zu verlieren.",
+            author: "— Thomas Merton"
+          },
+          {
+            text: "Das Privileg eines Lebens ist es, der zu werden, der man wirklich ist.",
+            author: "— Carl Jung"
+          },
+          {
+            text: "Eleganz ist Verzicht.",
+            author: "— Diana Vreeland"
+          },
+          {
+            text: "Ich bin nicht das, was mir passiert ist, ich bin das, was ich entscheide zu werden.",
+            author: "— Carl Jung"
+          },
+          {
+            text: "Der Zweck der Kunst ist es, den Staub des Alltags von der Seele zu waschen.",
+            author: "— Pablo Picasso"
+          }
+        ];
+        let currentLang = 'en';
         
         let currentSlide = 0;
         
         function updateQuote() {
-          // Smooth fade out
-          quoteElement.style.transition = 'opacity 1.5s ease-in-out';
-          authorElement.style.transition = 'opacity 1.5s ease-in-out';
-          quoteElement.classList.remove('active');
-          authorElement.classList.remove('active');
-          
+          // Fade out the block
+          quoteAuthorFade.style.transition = 'opacity 1.5s ease-in-out';
+          quoteAuthorFade.style.opacity = 0;
           setTimeout(() => {
             // Update text while invisible
+            const quotes = currentLang === 'de' ? quotesDE : quotesEN;
             quoteElement.textContent = quotes[currentSlide].text;
             authorElement.textContent = quotes[currentSlide].author;
-            
-            // Smooth fade in
+            // Fade in the block
             setTimeout(() => {
-              quoteElement.classList.add('active');
-              authorElement.classList.add('active');
+              quoteAuthorFade.style.opacity = 1;
             }, 100);
           }, 1500);
         }
@@ -416,8 +475,10 @@
         }
         
         // Initialize first quote
-        quoteElement.textContent = quotes[0].text;
-        authorElement.textContent = quotes[0].author;
+        const quotesInit = currentLang === 'de' ? quotesDE : quotesEN;
+  quoteElement.textContent = currentLang === 'en' ? quotesEN[0].text : quotesDE[0].text;
+  authorElement.textContent = currentLang === 'de' ? quotesDE[0].author : quotesEN[0].author;
+        quoteAuthorFade.style.opacity = 1;
         setTimeout(() => {
           quoteElement.classList.add('active');
           authorElement.classList.add('active');
@@ -425,6 +486,14 @@
         
         // Rotate every 6 seconds
         setInterval(rotateCarousel, 6000);
+        // Language toggle event
+        const langToggle = document.getElementById('language-toggle');
+        if (langToggle) {
+          langToggle.addEventListener('click', function() {
+            currentLang = currentLang === 'en' ? 'de' : 'en';
+            updateQuote();
+          });
+        }
       });
     </script>
 

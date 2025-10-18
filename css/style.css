@@ -8,6 +8,7 @@ header {
   top: 0;
   z-index: 1000;
 }
+
 .navbar {
   display: flex;
   align-items: center;
@@ -15,7 +16,6 @@ header {
   padding: 1rem 2rem;
   min-height: 70px;
   position: relative;
-  max-width: 1200px;
   margin: 0 auto;
 }
 .logo-link {
@@ -58,6 +58,7 @@ header {
   transition: border-color 0.3s ease;
   white-space: nowrap;
 }
+}
 .nav-links a:hover, .nav-links a.active {
   border-bottom: 2px solid #000000;
   color: #000000;
@@ -69,6 +70,27 @@ header {
   border-radius: 0 !important;
   padding: 0.75rem 1.5rem !important;
   margin-left: 1rem !important;
+
+  @media (min-width: 769px) {
+    .nav-links {
+      display: flex !important;
+      position: static !important;
+      flex-direction: row !important;
+      opacity: 1 !important;
+      visibility: visible !important;
+      background: none !important;
+      box-shadow: none !important;
+      padding: 0 !important;
+      gap: 3rem !important;
+      max-height: none !important;
+      overflow: visible !important;
+      border-top: none !important;
+      transform: none !important;
+    }
+    .menu-toggle {
+      display: none !important;
+    }
+  }
   border: 1px solid #000000 !important;
   border-bottom: 2px solid transparent !important;
   transition: all 0.3s ease !important;
@@ -95,14 +117,15 @@ header {
     gap: 2rem;
   }
   .menu-toggle {
-    display: block;
-    margin-left: auto;
-    background: none;
-    border: none;
-    font-size: 1.5rem;
-    color: #000000 !important;
-    cursor: pointer;
-    padding: 0.5rem;
+     display: block;
+     margin-left: auto;
+     background: none;
+     border: none;
+     font-size: 1.5rem;
+     color: #000000 !important;
+     cursor: pointer;
+     padding: 0.5rem;
+     width: auto;
   }
   .nav-links {
     position: absolute;
@@ -314,6 +337,8 @@ header {
 .contact-desc {
   font-size: 1.3rem;
   color: #555;
+      max-width: 100vw;
+      overflow-x: hidden;
   margin-bottom: 2rem;
 }
 
@@ -331,6 +356,8 @@ html, body {
 
 body {
   font-family: 'Helvetica Neue', Arial, sans-serif;
+      max-width: 100vw;
+      overflow-x: hidden;
   background: #ffffff;
   color: #000000;
   line-height: 1.6;
@@ -348,6 +375,8 @@ nav {
   background: transparent;
   height: 3.5rem;
   margin: 0;
+      max-width: 100vw;
+      overflow-x: hidden;
 }
 
 

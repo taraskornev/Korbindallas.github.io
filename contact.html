@@ -109,20 +109,20 @@
 
   <main>    
     <div class="contact-container">
-      <form id="contact-form" class="animate-fade-in">
+      <form id="contact-form" class="animate-fade-in" action="https://formspree.io/f/your-form-id" method="POST">
         <div class="form-group">
           <label data-translate="contact-name">Name</label>
-          <input type="text" name="from_name" required>
+          <input type="text" name="from_name" autocomplete="name" required>
         </div>
         
         <div class="form-group">
           <label data-translate="contact-email">Email</label>
-          <input type="email" name="reply_to" required>
+          <input type="email" name="reply_to" autocomplete="email" required>
         </div>
         
         <div class="form-group">
           <label data-translate="contact-subject">Subject</label>
-          <select name="subject" required>
+          <select name="subject" autocomplete="subject" required>
             <option value="" data-translate="contact-subject-select">Select a subject</option>
             <option value="commission" data-translate="contact-subject-commission">Commission Request</option>
             <option value="general" data-translate="contact-subject-general">General Inquiry</option>
@@ -133,7 +133,7 @@
         
         <div class="form-group">
           <label data-translate="contact-message">Message</label>
-          <textarea name="message" rows="6" required placeholder="Tell me about your project or inquiry..."></textarea>
+          <textarea name="message" rows="6" autocomplete="on" required placeholder="Tell me about your project or inquiry..."></textarea>
         </div>
         
         <button type="submit" class="submit-btn" data-translate="contact-send">

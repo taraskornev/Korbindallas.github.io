@@ -123,11 +123,18 @@ header {
   color: #000000;
 }
 .donate-btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem !important;
   background: #000000 !important;
   color: #ffffff !important;
+  border: 1px solid #000000 !important;
+  text-decoration: none !important;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  transition: all 0.3s ease !important;
   font-weight: 400 !important;
   border-radius: 0 !important;
-  padding: 0.75rem 1.5rem !important;
   margin-left: 1rem !important;
 
   @media (min-width: 769px) {
@@ -152,17 +159,15 @@ header {
     }
   }
   border: 1px solid #000000 !important;
-  border-bottom: 2px solid transparent !important;
+  border-bottom: none !important;
   transition: all 0.3s ease !important;
 }
 .donate-btn:hover {
-  background: #ffffff !important;
-  color: #000000 !important;
-  border: 1px solid #000000 !important;
-  border-bottom: 2px solid #000000 !important;
-  box-shadow: none !important;
+  background: #1F687D !important;
+  color: #ffffff !important;
+  border: 1px solid #1F687D !important;
   text-decoration: none !important;
-  border-bottom-color: #000000 !important;
+  box-shadow: none !important;
 }
 .menu-toggle {
   display: none !important;
@@ -2207,4 +2212,16 @@ footer {
     .legal-container h1 {
         font-size: 2rem;
     }
+}
+
+/* Force removal of border-bottom for donate button even if it inherits from .nav-links a. This will ensure no underline or jump effect. */
+.nav-links a.donate-btn {
+  border-bottom: none !important;
+}
+.nav-links a.donate-btn:hover {
+  border-bottom: none !important;
+}
+.nav-links a.donate-btn,
+.nav-links a.donate-btn:hover {
+  border-bottom: 1px solid #000 !important;
 }

@@ -136,31 +136,7 @@ header {
   font-weight: 400 !important;
   border-radius: 0 !important;
   margin-left: 1rem !important;
-
-  @media (min-width: 769px) {
-    .nav-links {
-      display: flex !important;
-      position: static !important;
-      flex-direction: row !important;
-      opacity: 1 !important;
-      visibility: visible !important;
-      background: none !important;
-      box-shadow: none !important;
-      padding: 0 !important;
-      gap: 3rem !important;
-      max-height: none !important;
-      overflow: visible !important;
-      border-top: none !important;
-      transform: none !important;
-    }
-    .menu-toggle {
-      display: none !important;
-    }
-    }
-  }
-  border: 1px solid #000000 !important;
   border-bottom: none !important;
-  transition: all 0.3s ease !important;
 }
 .donate-btn:hover {
   background: #1F687D !important;
@@ -168,6 +144,7 @@ header {
   border: 1px solid #1F687D !important;
   text-decoration: none !important;
   box-shadow: none !important;
+  border-bottom: none !important;
 }
 .menu-toggle {
   display: none !important;
